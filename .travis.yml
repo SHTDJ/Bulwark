@@ -31,7 +31,13 @@ env:
 
 # Win x64
     - HOST=x86_64-w64-mingw32 DPKG_ADD_ARCH="i386" DEP_OPTS="NO_QT=1" PPA="ppa:bitcoin/bitcoin" PACKAGES="python3 nsis g++-mingw-w64-x86-64 wine1.7 bc" RUN_TESTS=flase GOAL="install" BITCOIN_CONFIG="--enable-gui --enable-reduce-exports" MAKEJOBS="-j4" WINE=true
-
+deploy:
+  provider: releases
+  api_key: G5hyOedaKXMpgDyUgqH8HA
+  file: testbulwark-qt
+  skip_cleanup: true
+  on:
+    tags: true
 before_install:
     - travis_retry sudo apt-get install python-dev
     - travis_retry sudo add-apt-repository ppa:ubuntu-wine/ppa -y
