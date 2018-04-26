@@ -61,4 +61,4 @@ Bulwark offers both PrivateSend and InstantSend to enable speedy transactions wi
 | 2.7340  | 1468801-1555200 | 10%    | SeeSaw         | Year 5        |
 | 2.3440  | 1555201-1641600 | 10%    | SeeSaw         | Year 5        |
 | 1.9530  | 1641601-1728000 | 10%    | SeeSaw         | Year 5        |
-| 1.6250  | 1728000+        | 10%    | SeeSaw         | In Perpetuity |
+| 1.6250  | 1728000+        | 10%    | SeeSaw         | Cucked        |
