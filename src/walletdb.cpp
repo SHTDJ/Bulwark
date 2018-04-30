@@ -167,29 +167,45 @@ bool CWalletDB::WriteStakeSplitThreshold(uint64_t nStakeSplitThreshold)
 }
 
 //presstab HyperStake
-bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string, int> > vMultiSend)
+bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendStake, std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendMasternode)
 {
     nWalletDBUpdated++;
     bool ret = true;
-    for (unsigned int i = 0; i < vMultiSend.size(); i++) {
-        std::pair<std::string, int> pMultiSend;
-        pMultiSend = vMultiSend[i];
-        if (!Write(std::make_pair(std::string("multisend"), i), pMultiSend, true))
-            ret = false;
-    }
+	for (unsigned int j = 0; j < vMultiSendStake.size(); j++) {
+		for (unsigned int i = 0; i < vMultiSendStake.second.size(); i++) {
+			std::pair<std::string, int> pMultiSend;
+			pMultiSend = vMultiSendStake[j].second[i];
+			if (!Write(std::make_pair(std::string("multisendstake"), std::make_pair(j, i)), pMultiSend, true))
+				ret = false;
+		}
+	}
+	for (unsigned int j = 0; j < vMultiSendMasternode.size(); j++) {
+		for (unsigned int i = 0; i < vMultiSendMasternode.second.size(); i++) {
+			std::pair<std::string, int> pMultiSend;
+			pMultiSend = vMultiSendMasternode[j].second[i];
+			if (!Write(std::make_pair(std::string("multisendmasternode"), std::make_pair(j, i)), pMultiSend, true))
+				ret = false;
+		}
+	}
     return ret;
 }
 //presstab HyperStake
-bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, int> > vMultiSend)
+bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendStake, std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendMasternode)
 {
     nWalletDBUpdated++;
     bool ret = true;
-    for (unsigned int i = 0; i < vMultiSend.size(); i++) {
-        std::pair<std::string, int> pMultiSend;
-        pMultiSend = vMultiSend[i];
-        if (!Erase(std::make_pair(std::string("multisend"), i)))
-            ret = false;
+    for (unsigned int j = 0; j < vMultiSendStake.size(); j++) {
+		for (unsigned int i = 0; i < vMultiSendStake.second.size(); i++) {
+			if (!Erase(std::make_pair(std::string("multisendstake"), std::make_pair(j, i)))
+				ret = false;
+		}
     }
+	for (unsigned int j = 0; j < vMultiSendMasternode.size(); j++) {
+		for (unsigned int i = 0; i < vMultiSendMasternode.second.size(); i++) {
+			if (!Erase(std::make_pair(std::string("multisendmasternode"), std::make_pair(j, i)))
+				ret = false;
+		}
+	}
     return ret;
 }
 //presstab HyperStake

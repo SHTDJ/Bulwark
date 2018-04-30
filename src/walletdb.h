@@ -108,8 +108,8 @@ public:
 
     // presstab
     bool WriteStakeSplitThreshold(uint64_t nStakeSplitThreshold);
-    bool WriteMultiSend(std::vector<std::pair<std::string, int> > vMultiSend);
-    bool EraseMultiSend(std::vector<std::pair<std::string, int> > vMultiSend);
+    bool WriteMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendStake, std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendMasternode);
+	bool EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendStake, std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>> >> vMultiSendMasternode);
     bool WriteMSettings(bool fMultiSendStake, bool fMultiSendMasternode, int nLastMultiSendHeight);
     bool WriteMSDisabledAddresses(std::vector<std::string> vDisabledAddresses);
     bool EraseMSDisabledAddresses(std::vector<std::string> vDisabledAddresses);
