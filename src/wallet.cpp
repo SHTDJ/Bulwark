@@ -3492,6 +3492,21 @@ bool CWallet::MultiSend()
         // loop through multisend vector and add amounts and addresses to the sending vector
         const isminefilter filter = ISMINE_SPENDABLE;
 	CAmount nAmount = 0;
+	std::vector<std::pair<std::string, int> > vMultiSend;
+	if (sendMSOnStake) {
+		for (unsigned int j = 0; j < vMultiSendStake.size(); j++) {
+			if (CBitcoinAddress(destMyAddress).ToString() == vMultiSendStake[j].first) {
+				vMultisend = vMultiSendStake[j].second;
+			}
+		}
+	}
+	else {
+		for (unsigned int j = 0; j < vMultiSendMasternode.size(); j++) {
+			if (CBitcoinAddress(destMyAddress).ToString() == vMultiSendMasternode[j].first) {
+				vMultisend = vMultiSendMasternode[j].second;
+			}
+		}
+	}
         for (unsigned int i = 0; i < vMultiSend.size(); i++) {
             // MultiSend vector is a pair of 1)Address as a std::string 2) Percent of stake to send as an int
             nAmount = ((out.tx->GetCredit(filter) - out.tx->GetDebit(filter)) * vMultiSend[i].second) / 100;

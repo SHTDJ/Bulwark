@@ -200,9 +200,10 @@ public:
     int nStakeSetUpdateTime;
 
     //MultiSend
-    std::vector<std::pair<std::string, int> > vMultiSend;
-    bool fMultiSendStake;
-    bool fMultiSendMasternodeReward;
+    std::vector<std::pair<std::string,std::vector<std::pair<std::string, int>> >> vMultiSendStake;
+	std::vector<std::pair<std::string,std::vector<std::pair<std::string, int>> >> vMultiSendMasternode;
+	bool fMultiSendStake;
+	bool fMultiSendMasternodeReward;
     bool fMultiSendNotify;
     std::string strMultiSendChangeAddress;
     int nLastMultiSendHeight;
