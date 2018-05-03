@@ -76,7 +76,6 @@ public:
     int LAST_POW_BLOCK() const { return nLastPOWBlock; }
     /** Slow Start, Ramp up linearly to block **/
     int RAMP_TO_BLOCK() const { return nRampToBlock; }
-	int RAMP_TO_POS_BLOCK() const { return nRampToPoSBlock; }
     int COINBASE_MATURITY() const { return nMaturity; }
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
@@ -114,7 +113,6 @@ protected:
     int64_t nTargetSpacingSlowLaunch;
     int nLastPOWBlock;
     int nRampToBlock;
-	int nRampToPoSBlock;
     int nMasternodeCountDrift;
     int nMaturity;
     int nModifierUpdateBlock;

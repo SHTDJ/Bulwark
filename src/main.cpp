@@ -1622,7 +1622,6 @@ int64_t GetBlockValue(int nHeight)
 
     CAmount nSubsidy = 0;
     CAmount nSlowSubsidy = 50 * COIN;
-	CAmount nSlowPoSSubsidy = 37.5 * COIN;
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         // Testnet (New parameters - Feb-2018) -SerfyWerfy
@@ -1636,16 +1635,11 @@ int64_t GetBlockValue(int nHeight)
     } else if (nHeight < Params().RAMP_TO_BLOCK() / 2) {
            nSlowSubsidy /= Params().RAMP_TO_BLOCK();
            nSlowSubsidy *= nHeight;
-	}
-	else if (nHeight < Params().RAMP_TO_BLOCK()) {
-		nSlowSubsidy /= Params().RAMP_TO_BLOCK();
-		nSlowSubsidy *= nHeight;
-	}
-	else if (nHeight > Params().LAST_POW_BLOCK() && nHeight <= Params().Ramp_TO_POS_BLOCK()) {
-		nSlowPoSSubsidy /= Params().RAMP_TO_POS_BLOCK - Params().LAST_POW_BLOCK;
-		nSlowPoSSubsidy *= nHeight - Params().LAST_POW_BLOCK;
+    } else if (nHeight < Params().RAMP_TO_BLOCK()) {
+            nSlowSubsidy /= Params().RAMP_TO_BLOCK();
+            nSlowSubsidy *= nHeight;
     } else if (nHeight <= 86399 && nHeight >= Params().RAMP_TO_BLOCK()) {
-		nSubsidy = 50 * COIN;
+	nSubsidy = 50 * COIN;
     } else if (nHeight <= 172799 && nHeight >= 86400) {
         nSubsidy = 43.75 * COIN;
     } else if (nHeight <= 259199 && nHeight >= 172800) {
@@ -1700,12 +1694,10 @@ int64_t GetBlockValue(int nHeight)
     }
 
     // Make sure we return the correct nSubsidy value -Serfywerfy
-	if (nHeight >= Params().RAMP_TO_BLOCK())
-		return nSubsidy;
-	else if (nHeight > Params().LAST_POW_BLOCK && nHeight < Params().RAMP_TO_POS_BLOCK)
-		return nSlowPoSSubsidy;
+    if (nHeight >= Params().RAMP_TO_BLOCK())
+	return nSubsidy;
     else
-		return nSlowSubsidy;
+	return nSlowSubsidy;
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
