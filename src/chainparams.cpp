@@ -115,6 +115,7 @@ public:
         nLastPOWBlock = 345600; // 1 Year
 	nRampToBlock = 960; // Slow start, ramp linearly to this block
         nMaturity = 66; // 99 Minutes
+		RampToPoSBlock = LAST_POW_BLOCK() + 100;
 	nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 1;
 	nMaxMoneyOut = 21525720 * COIN; // Year 2
@@ -210,6 +211,7 @@ public:
 	nTargetSpacingSlowLaunch = 1 * 90; // Kludgy but don't want to check for testnet each time in GetNextWorkRequired
 
         nLastPOWBlock = 1000;
+		RampToPoSBlock = LAST_POW_BLOCK() + 100;
         nMaturity = 15;
 	nMaxMoneyOut = 33284220 * COIN; // 2032 Maximum
 	
