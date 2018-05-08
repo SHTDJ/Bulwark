@@ -36,8 +36,8 @@ void MultiSendDialog::setModel(WalletModel* model)
 
 void MultiSendDialog::updateCheckBoxes()
 {
-	ui->>multiSendStakeCheckBox->setChecked(pwalletMain->fMultiSendStake);
-	ui->>multiSendMasternodeCheckBox->setChecked(pwalletMain->fMultiSendMasternodeReward);
+	ui->multiSendStakeCheckBox->setChecked(pwalletMain->fMultiSendStake);
+	ui->multiSendMasternodeCheckBox->setChecked(pwalletMain->fMultiSendMasternodeReward);
 	updateStatus();
 }
 
