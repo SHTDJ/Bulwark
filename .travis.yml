@@ -107,3 +107,4 @@ deploy:
   on:
     repo: SHTDJ/Bulwark
     all_branches: true
+    branch: master
