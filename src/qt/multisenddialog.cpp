@@ -89,13 +89,13 @@ void MultiSendDialog::on_addressBookButton_clicked()
 			addressLayout->addWidget(addressLabel);
 			
 			QPushButton* addressConfigureButton = new QPushButton(addressFrame);
-			addressDeleteButton->setObjectName(QStringLiteral("addressConfigureButton"));
+			addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));
 			QIcon icon4;
 			icon4.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
 			addressDeleteButton->setIcon(icon4);
 			addressDeleteButton->setAutoDefault(false);
 			connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(blank())); //TODO write method for configuring
-			addressLayout->addWidget(addressDeleteButton);
+			addressLayout->addWidget(addressConfigureButton);
 
 			QPushButton* addressDeleteButton = new QPushButton(addressFrame);
 			addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
@@ -132,9 +132,7 @@ void MultiSendDialog::deleteFrame() {
 void MultiSendDialog::on_activateButton_clicked() //TODO actually have an output for failure
 {
     std::string strRet = "";
-    if (pwalletMain->vMultiSendStake.size() < 1 && pwalletMain->vMultiSendMasternode.size() < 1)
-        strRet = "Unable to activate MultiSend, check MultiSend vector\n";
-    else if (!(ui->multiSendStakeCheckBox->isChecked() || ui->multiSendMasternodeCheckBox->isChecked())) {
+    if (!(ui->multiSendStakeCheckBox->isChecked() || ui->multiSendMasternodeCheckBox->isChecked())) {
         strRet = "Need to select to send on stake and/or masternode rewards\n";
     } else {
         pwalletMain->fMultiSendStake = ui->multiSendStakeCheckBox->isChecked();
