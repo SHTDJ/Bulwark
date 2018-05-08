@@ -92,8 +92,8 @@ void MultiSendDialog::on_addressBookButton_clicked()
 			addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));
 			QIcon icon4;
 			icon4.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
-			addressDeleteButton->setIcon(icon4);
-			addressDeleteButton->setAutoDefault(false);
+			addressConfigureButton->setIcon(icon4);
+			addressConfigureButton->setAutoDefault(false);
 			connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(blank())); //TODO write method for configuring
 			addressLayout->addWidget(addressConfigureButton);
 
