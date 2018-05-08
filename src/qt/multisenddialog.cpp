@@ -34,17 +34,6 @@ void MultiSendDialog::setModel(WalletModel* model)
     this->model = model;
 }
 
-void MultiSendDialog::setAddress(const QString& address)
-{
-	setAddress(address, ui->multiSendAddressEdit);
-}
-
-void MultiSendDialog::setAddress(const QString& address, QLineEdit* addrEdit)
-{
-    addrEdit->setText(address);
-    addrEdit->setFocus();
-}
-
 void MultiSendDialog::updateCheckBoxes()
 {
 	ui->>multiSendStakeCheckBox->setChecked(pwalletMain->fMultiSendStake);
