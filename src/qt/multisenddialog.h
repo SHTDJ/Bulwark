@@ -15,14 +15,14 @@ class MultiSendDialog : public QDialog
     void updateStatus();
 	void updateCheckBoxes();
 
+private:
+	Ui::MultiSendDialog* ui;
+	WalletModel* model;
+
 public:
     explicit MultiSendDialog(QWidget* parent = 0);
     ~MultiSendDialog();
     void setModel(WalletModel* model);
-    
-private:
-    Ui::MultiSendDialog* ui;
-    WalletModel* model;
     
 private slots:
 	void deleteFrame();
