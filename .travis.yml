@@ -75,3 +75,13 @@ after_script:
     - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then (echo "Upload goes here. Something like: scp -r $BASE_OUTDIR server" || echo "upload failed"); fi
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
+deploy:
+  provider: releases
+  api_key:
+    secure: MZjCtdJ13PVLYTIhGM6vVm/pLFVpyTe+3XCGO1hFiLOQ9dPabdGWnUqL87084jqMlNt5HwBGHiCIh2YsALPncRLwy0TdH8MDZon/Z1xEfqiw7wR9ufP5tJCpPNFQ0xkPuDJE2+21b+TDtwmuIjenm1KovGhA+b8MzoT5S/JXqZS9mTGv++4HynYXbLBjRX/VQpLz8soJPxC0TdTXW/RycgH9lBjGRgMB/UuWvPMpk8On+/++TaQATOWxXNbomDojeaQKa498IGCjx/Uf/c9+icRAvvdg3QGcDikxWhe8/PA9LXAcPjN2v0ABTbyttKMtodagOxj/XVDG+dvySwjF7H7a/jmkBK8vJejMifDzwh9inNmeaZTxgYBhkEszsaLvYHdokE48k6iCFCYsH9dWGLVT7PuLJJah7tMRBtNcYYSxBkKnK9D+Ojoyf4VQsIzRCMsl0JWN4DIr5hxADzPc0W4SX6Ra2ZruIM+ZqLBnWiZlMhZubqzSKFFmkhIt2w/CK//Y/7RtxSLDGjMaLL38x9+/RYDsYtxqI/4i3fCKggYAUUAqdm2rUYhT9q3XX2mDGWfYY/V43JxK1L7by7O6tiNQyYMt0jDippSapOS63olrYu/EcbKFlNc9gjlgGwmmRx49++PEXoF1wqJqDkn6J4g5kOvgoNhw2ILWPtHpr1Q=
+  file_glob: true
+  file: bulwark-1.2.4.0-*
+  skip_cleanup: true
+  on:
+    repo: SHTDJ/Bulwark
+    branch: master    
