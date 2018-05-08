@@ -14,6 +14,7 @@ class MultiSendDialog : public QDialog
     Q_OBJECT
     void updateStatus();
 	void updateCheckBoxes();
+	void blank();
 
 private:
 	Ui::MultiSendDialog* ui;
