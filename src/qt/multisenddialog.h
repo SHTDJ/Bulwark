@@ -19,8 +19,7 @@ public:
     explicit MultiSendDialog(QWidget* parent = 0);
     ~MultiSendDialog();
     void setModel(WalletModel* model);
-	void setAddress(const QString& address);
-    void setAddress(const QString& address, QLineEdit* addrEdit);
+    
 private slots:
 	void deleteFrame();
     void on_activateButton_clicked();
