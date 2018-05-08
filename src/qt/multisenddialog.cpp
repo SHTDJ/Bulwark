@@ -88,7 +88,7 @@ void MultiSendDialog::on_addressBookButton_clicked()
 			addressLabel->setText(dlg.getReturnValue());
 			addressLayout->addWidget(addressLabel);
 			
-			QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+			QPushButton* addressConfigureButton = new QPushButton(addressFrame);
 			addressDeleteButton->setObjectName(QStringLiteral("addressConfigureButton"));
 			QIcon icon4;
 			icon4.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
