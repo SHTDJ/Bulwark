@@ -173,11 +173,23 @@
     <rect>
      <x>20</x>
      <y>360</y>
-     <width>401</width>
+     <width>251</width>
      <height>91</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <property name="leftMargin">
@@ -195,14 +207,7 @@
       <item>
        <widget class="QLabel" name="multiSendLabel">
         <property name="text">
-         <string>Multisend Status:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="multiSendStatusLabel">
-        <property name="text">
-         <string/>
+         <string>MultiSend Status:</string>
         </property>
        </widget>
       </item>
@@ -237,7 +242,7 @@
          <string>Address to send portion of stake to</string>
         </property>
         <property name="text">
-         <string>Click to add an address that you want to configure for Multisend</string>
+         <string>Click to add an address for MultiSend</string>
         </property>
        </widget>
       </item>
@@ -255,10 +260,10 @@
         <property name="text">
          <string/>
         </property>
-		   <property name="icon">
-            <iconset resource="../pivx.qrc">
-             <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
-           </property>
+        <property name="icon">
+         <iconset resource="../bulwark.qrc">
+          <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+        </property>
         <property name="autoDefault">
          <bool>false</bool>
         </property>
