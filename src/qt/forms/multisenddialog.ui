@@ -173,7 +173,7 @@
     <rect>
      <x>20</x>
      <y>360</y>
-     <width>251</width>
+     <width>271</width>
      <height>91</height>
     </rect>
    </property>
@@ -274,6 +274,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../bulwark.qrc"/>
+ </resources>
  <connections/>
 </ui>
