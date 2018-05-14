@@ -216,6 +216,11 @@ void OverviewPage::on_toggleStaking_clicked()
 	if (walletModel->getEncryptionStatus() == WalletModel::Locked) {
 		WalletModel::UnlockContext ctx(walletModel->requestUnlock(false));
 	}
+	else {
+		QMessageBox::information(this, tr("Staking"),
+			tr("Staking is already enabled"),
+			QMessageBox::Ok, QMessageBox::Ok);
+	}
 }
 
 // show/hide watch-only labels
