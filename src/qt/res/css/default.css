@@ -175,9 +175,10 @@ QPushButton:focus {} QPushButton:pressed {
 	border: 1px solid #000000;
 	background-color: #b3cce6
 }
-QPushButton#labelEncryptionIcon,
-QPushButton#labelConnectionsIcon,
-QPushButton#labelAutoMintIcon {
+QLabel#labelEncryptionIcon,
+QLabel#labelConnectionsIcon,
+QLabel#labelBlocksIcon,
+QPushButton#labelAutoMintIcon{
 	border: 0px;
 	padding-left: 0px;
 	padding-right: 0px;
