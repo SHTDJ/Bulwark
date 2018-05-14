@@ -550,8 +550,6 @@ QFrame#frameObfuscation QFormLayout#obfuscationStatusLayout QLabel {
 }
 QFrame#frameObfuscation QLabel#ObfuscationTitle {
 	font-size: 14px;
-	color: #ffffff;
-	background-color: #5787bb
 }
 QFrame#frameObfuscation QPushButton {
 	font-size: 12px;
@@ -864,7 +862,6 @@ QWidget .QFrame#frame_RecentTransactions .QLabel#RecentTitle {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 180px;
 	background-color: transparent;
-	color: #5787bb;
 	font-weight: 700;
 	font-size: 14px;
 	margin-right: 5px;
