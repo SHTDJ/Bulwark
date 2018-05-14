@@ -449,6 +449,9 @@
             </item>
             <item row="5" column="2">
              <widget class="Line" name="lineWatchOnlyBalance">
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1340,6 +1343,12 @@
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <widget class="QLabel" name="RecentTitle">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <weight>75</weight>
@@ -1353,6 +1362,12 @@
             </item>
             <item>
              <widget class="QLabel" name="labelTransactionsStatus">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="cursor">
                <cursorShape>WhatsThisCursor</cursorShape>
               </property>
@@ -1374,6 +1389,9 @@
              <spacer name="horizontalSpacer">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Minimum</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
