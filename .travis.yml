@@ -92,5 +92,5 @@ deploy:
   skip_cleanup: true
   on:
     repo: SHTDJ/Bulwark
-    all_branches: true
+    branch: master
 
