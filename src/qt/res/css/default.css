@@ -721,7 +721,6 @@ QWidget .QFrame#frame_Balances .QLabel#BalanceTitle {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
 	background-color: transparent;
-	color: #5787bb;
 	font-weight: 700;
 	font-size: 15px;
 }
@@ -742,7 +741,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelWatchonly {
 QWidget .QFrame#frame_Balances .QLabel#labelBalanceText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	color: #324e6b;
 	margin-right: 5px;
 	padding-right: 5px;
 	font-weight: 700;
@@ -752,7 +750,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelBalance {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	font-size: 12px;
 	font-weight: 700;
-	color: #5787bb;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchAvailable {
@@ -763,7 +760,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelWatchAvailable {
 QWidget .QFrame#frame_Balances .QLabel#labelPendingText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	color: #324e6b;
 	margin-right: 5px;
 	padding-right: 5px;
 	font-weight: 700;
@@ -773,7 +769,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelUnconfirmed {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	font-size: 12px;
 	font-weight: 700;
-	color: #5787bb;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchPending {
@@ -784,7 +779,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelWatchPending {
 QWidget .QFrame#frame_Balances .QLabel#labelImmatureText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	color: #324e6b;
 	margin-right: 5px;
 	padding-right: 5px;
 	font-weight: 700;
@@ -794,7 +788,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelImmature {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	font-size: 12px;
 	font-weight: 700;
-	color: #5787bb;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchImmature {
@@ -805,7 +798,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelWatchImmature {
 QWidget .QFrame#frame_Balances .QLabel#labelTotalText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	color: #324e6b;
 	margin-right: 5px;
 	padding-right: 5px;
 	font-weight: 700;
@@ -815,7 +807,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelTotal {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	font-size: 12px;
 	font-weight: 700;
-	color: #5787bb;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchTotal {
