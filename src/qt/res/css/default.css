@@ -551,9 +551,6 @@ QFrame#frameObfuscation {
 QFrame#frameObfuscation QFormLayout#obfuscationStatusLayout QLabel {
 	border: 0px solid #000
 }
-QFrame#frameObfuscation QLabel#ObfuscationTitle {
-	font-size: 14px;
-}
 QFrame#frameObfuscation QPushButton {
 	font-size: 12px;
 	font-weight: 400;
@@ -823,7 +820,7 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#BalanceTitlez {
 	background-color: transparent;
 	color: #5787bb;
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 15px;
 	margin-right: 5px;
 	padding-right: 5px
 }
@@ -868,7 +865,7 @@ QWidget .QFrame#frame_RecentTransactions .QLabel#RecentTitle {
 	min-width: 180px;
 	background-color: transparent;
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 15px;
 	margin-right: 5px;
 	padding-right: 5px
 }
@@ -1138,6 +1135,10 @@ QCalendarWidget QAbstractItemView:enabled {
 QCalendarWidget QAbstractItemView:disabled {
 	color: #818181
 }
-QWidget#PrivacyDialog .QLabel#ObfuscationTitle {
+QWidget#frameObfuscation QLabel#ObfuscationTitle {
 	font-size: 15px;
+	qproperty-alignment: 'AlignVCenter | AlignLeft';
+	min-width: 160px;
+	background-color: transparent;
+	font-weight: 700
 }
