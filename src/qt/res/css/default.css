@@ -951,6 +951,10 @@ QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel {
 	margin-right: 5px;
 	padding-right: 5px
 }
+QStackedWidget#SendCoinsEntry QToolButton {
+	background-color: transparent;
+	border: 0
+}
 QDialog#CoinControlDialog .QLabel#labelCoinControlQuantityText {
 	min-height: 30px;
 	padding-left: 15px
