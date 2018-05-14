@@ -49,4 +49,4 @@ SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 Standard:        Cpp03
 TabWidth:        8
-UseTab:          Never 
+UseTab:          Never
