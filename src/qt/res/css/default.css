@@ -15,8 +15,7 @@ QMenuBar {
 	background-color: #fff
 }
 QMenuBar::item {
-	background-color: #fff;
-	color: #333
+	background-color: #fff
 }
 QMenuBar::item:selected {
 	background-color: #fafefd
