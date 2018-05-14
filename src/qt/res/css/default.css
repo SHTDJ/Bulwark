@@ -541,23 +541,19 @@ QWidget#AddressBookPage QTableView {
 QWidget#AddressBookPage QHeaderView::section {
 	min-width: 260px
 }
-.QFrame#frameObfuscation QFrame {
+QFrame#frameObfuscation {
 	background-color: transparent;
 	border: 0px solid #000
 }
-QWidget#PrivacyDialog QFrame#labelMintStatus {
-	background-color: #eee;
-	border: 1px inset gray
-}
-QWidget#PrivacyDialog QLabel {
+QFrame#frameObfuscation QFormLayout#obfuscationStatusLayout QLabel {
 	border: 0px solid #000
 }
-QWidget#PrivacyDialog QLabel#oDTEMLabel {
+QFrame#frameObfuscation QLabel#ObfuscationTitle {
 	font-size: 14px;
 	color: #ffffff;
 	background-color: #5787bb
 }
-QWidget#PrivacyDialog QPushButton {
+QFrame#frameObfuscation QPushButton {
 	font-size: 12px;
 	font-weight: 400;
 	padding-left: 5px;
@@ -567,16 +563,16 @@ QWidget#PrivacyDialog QPushButton {
 	height: 26px;
 	margin: 2px
 }
-QWidget#PrivacyDialog QProgressBar#obfuscationProgress {
+QFrame#frameObfuscation QProgressBar#obfuscationProgress {
 	border: 1px solid #818181;
 	border-radius: 1px;
 	color: #818181
 }
-QWidget#PrivacyDialog QProgressBar#obfuscationProgress::chunk {
+QFrame#frameObfuscation QProgressBar#obfuscationProgress::chunk {
 	background-color: #5787bb;
 	width: 1px
 }
-QWidget#PrivacyDialog QProgressBar#progressBarLabel {
+QFrame#frameObfuscation QProgressBar#progressBarLabel {
 	qproperty-alignment: AlignCenter;
 }
 QDialog#AskPassphraseDialog QLabel#passLabel1,
