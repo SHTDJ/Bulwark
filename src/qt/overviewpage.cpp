@@ -211,6 +211,13 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     }
 }
 
+void OverviewPage::on_toggleStaking_clicked()
+{
+	if (walletModel->getEncryptionStatus() == WalletModel::Locked) {
+		WalletModel::UnlockContext ctx(walletModel->requestUnlock(false));
+	}
+}
+
 // show/hide watch-only labels
 void OverviewPage::updateWatchOnlyLabels(bool showWatchOnly)
 {
