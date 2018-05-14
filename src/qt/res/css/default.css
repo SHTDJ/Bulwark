@@ -67,7 +67,6 @@ QMessageBox {
 	background-color: #fff
 }
 QProgressBar {
-	color: #AAAAAA;
 	border: 1px solid grey;
 	border-radius: 5px;
 	background-color: transparent;
@@ -562,15 +561,17 @@ QFrame#frameObfuscation QPushButton {
 	margin: 2px
 }
 QFrame#frameObfuscation QProgressBar#obfuscationProgress {
-	border: 1px solid #818181;
-	border-radius: 1px;
-	color: #818181
+	border: 1px solid grey;
+	border-radius: 5px;
+	background-color: transparent;
+	padding-left: 0px;
+	padding-right: 0px
 }
 QFrame#frameObfuscation QProgressBar#obfuscationProgress::chunk {
 	background-color: #5787bb;
 	width: 1px
 }
-QFrame#frameObfuscation QProgressBar#progressBarLabel {
+QFrame#frameObfuscation QLabel#progressBarLabel {
 	qproperty-alignment: AlignCenter;
 }
 QDialog#AskPassphraseDialog QLabel#passLabel1,
