@@ -181,6 +181,10 @@ BITCOIN_QT_H = \
   qt/walletview.h \
   qt/winshutdownmonitor.h
 
+RES_FONTS = \
+  qt/res/fonts/SourceSansPro-Regular.ttf
+  qt/res/fonts/SourceSansPro-Bold.ttf
+
 RES_ICONS = \
   qt/res/icons/history_m.png \
   qt/res/icons/send_m.png \
