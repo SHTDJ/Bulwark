@@ -150,12 +150,6 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
             timer = new QTimer(this);
             connect(timer, SIGNAL(timeout()), this, SLOT(obfuScationStatus()));
             timer->start(1000);
-	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
-	QFont font = QFont("Source Sans Pro", 15, 0);
-	ui->toggleStaking->setFont(font);
-	ui->obfuscationAuto->setFont(font);
-	ui->obfuscationReset->setFont(font);
-	ui->toggleObfuscation->setFont(font);
         }
     }
 

@@ -56,6 +56,7 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
+#include <QFont>
 
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
@@ -115,6 +116,9 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
+	QFont font = QFont("Source Sans Pro", 15, 0);
+	QApplication::setFont(font);
 
     QString windowTitle = tr("Bulwark Core") + " - ";
 #ifdef ENABLE_WALLET
