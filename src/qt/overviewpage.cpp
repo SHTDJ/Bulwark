@@ -152,7 +152,10 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
             timer->start(1000);
 	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
 	QFont font = QFont("Source Sans Pro", 15, 0);
-	ui->BalanceTitle->setFont(font);	
+	ui->toggleStaking->setFont(font);
+	ui->obfuscationAuto->setFont(font);
+	ui->obfuscationReset->setFont(font);
+	ui->toggleObfuscation->setFont(font);
         }
     }
 
