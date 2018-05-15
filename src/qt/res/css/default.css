@@ -44,7 +44,6 @@ QToolBar > QToolButton {
 	padding: 0em 2em;
 	min-height: 3em;
 	padding: 0em 3.566668em;
-	font-size: 12px;
 	color: #fff
 }
 QToolBar > QToolButton:checked {
@@ -110,7 +109,6 @@ QToolTip {
 	color: #333
 }
 QLabel {
-	font-size: 12px;
 	color: #333333
 }
 .QRadioButton {
@@ -122,7 +120,6 @@ QLabel {
 .QCheckBox:hover {} .QValidatedLineEdit,
 .QLineEdit,
 .QTextEdit {
-	font-size: 12px;
 	min-height: 25px;
 	outline: 0;
 	padding: 3px;
@@ -158,8 +155,6 @@ QPushButton {
 	border-color: #5787bb;
 	border-radius: 2px;
 	color: #ffffff;
-	font-size: 12px;
-	font-weight: 700;
 	padding-left: 25px;
 	padding-right: 25px;
 	padding-top: 1px;
@@ -243,7 +238,6 @@ QComboBox::indicator {
 QAbstractSpinBox {
 	padding: 3px 5px 3px 5px;
 	background: #fcfcfc;
-	font-size: 12px;
 	min-height: 25px;
 	outline: 0;
 	padding: 3px;
@@ -282,7 +276,6 @@ QAbstractSpinBox::down-arrow {
 QValueComboBox {
 	padding: 3px 5px 3px 5px;
 	background: #fcfcfc;
-	font-size: 12px;
 	min-height: 25px;
 	outline: 0;
 	padding: 3px;
@@ -303,8 +296,6 @@ QHeaderView::section {
 	background-color: #5787bb;
 	color: #fff;
 	min-height: 25px;
-	font-weight: 700;
-	font-size: 11px;
 	border: 0;
 	border-right: 1px solid #fff;
 	padding-left: 5px;
@@ -335,7 +326,6 @@ QDialog#MultiSendDialog QScrollArea{
 }
 QTableView::item {
 	background-color: #fcfcfc;
-	font-size: 12px
 }
 QTableView::item:selected {
 	background-color: #5787bb;
@@ -518,9 +508,6 @@ QDialog .QTabWidget .QWidget QAbstractSpinBox::up-button {
 QDialog .QTabWidget .QWidget QComboBox {
 	min-height: 15px
 }
-QDialog#OpenURIDialog QLabel#label {
-	font-weight: 700
-}
 QDialog#OpenURIDialog QPushButton#selectFileButton {
 	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #f6f6f6, stop: .1 rgba(250, 250, 250, 128), stop: .95 rgba(250, 250, 250, 255), stop: 1 #ebebeb);
 	border: 1px solid #d2d2d2;
@@ -538,9 +525,6 @@ QDialog#OpenURIDialog QPushButton#selectFileButton:pressed {
 QWidget#AddressBookPage {
 	background-color: #fafefd
 }
-QWidget#AddressBookPage QTableView {
-	font-size: 12px
-}
 QWidget#AddressBookPage QHeaderView::section {
 	min-width: 260px
 }
@@ -552,8 +536,6 @@ QFrame#frameObfuscation QFormLayout#obfuscationStatusLayout QLabel {
 	border: 0px solid #000
 }
 QFrame#frameObfuscation QPushButton {
-	font-size: 12px;
-	font-weight: 400;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 1px;
@@ -615,9 +597,6 @@ QDialog#OptionsDialog QCheckBox {
 QDialog#OptionsDialog QCheckBox#displayAddresses {
 	min-height: 33px
 }
-QDialog#OptionsDialog QLabel#labelStakeSplitThresholdText {
-	font-size: 16px
-}
 QDialog#RPCConsole QWidget#tab_info QLabel#label_11,
 QDialog#RPCConsole QWidget#tab_info QLabel#label_10 {
 	qproperty-alignment: 'AlignBottom';
@@ -670,15 +649,12 @@ QDialog#AboutDialog QLabel#label_2 {
 QDialog#EditAddressDialog QLabel {
 	qproperty-alignment: 'AlignVCenter | AlignRight';
 	min-height: 27px;
-	font-weight: 400;
 	padding-right: 5px
 }
 QFrame[frameShape="4"] {
 	border: 1px solid #4c75a1
 }
 QLabel#labelOverviewHeaderLeft {
-	font-weight: 700;
-	font-size: 20px;
 	background-color: #ffffff
 }
 QLabel#labelOverviewHeaderRight {
@@ -720,9 +696,7 @@ QWidget .QFrame#frame_Balances > .QLabel {
 QWidget .QFrame#frame_Balances .QLabel#BalanceTitle {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	background-color: transparent;
-	font-weight: 700;
-	font-size: 15px;
+	background-color: transparent
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWalletStatus {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
@@ -730,80 +704,62 @@ QWidget .QFrame#frame_Balances .QLabel#labelWalletStatus {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelSpendable {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 18px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchonly {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 16px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelBalanceText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	margin-right: 5px;
-	padding-right: 5px;
-	font-size: 15px
+	padding-right: 5px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelBalance {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
-	font-weight: 700;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchAvailable {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 16px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelPendingText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	margin-right: 5px;
-	padding-right: 5px;
-	font-size: 15px
+	padding-right: 5px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelUnconfirmed {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
-	font-weight: 700;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchPending {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 16px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelImmatureText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	margin-right: 5px;
-	padding-right: 5px;
-	font-size: 15px
+	padding-right: 5px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelImmature {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
-	font-weight: 700;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchImmature {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 16px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelTotalText {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	margin-right: 5px;
 	padding-right: 5px;
-	font-size: 15px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelTotal {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
-	font-weight: 700;
 	margin-left: 0px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchTotal {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 12px;
 	margin-left: 16px
 }
 QWidget .QFrame#frame_CombinedBalances .QLabel#BalanceTitlez {
@@ -811,8 +767,6 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#BalanceTitlez {
 	min-width: 160px;
 	background-color: transparent;
 	color: #5787bb;
-	font-weight: 700;
-	font-size: 15px;
 	margin-right: 5px;
 	padding-right: 5px
 }
@@ -821,14 +775,10 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#labelBalanceTextz {
 	min-width: 160px;
 	color: #324e6b;
 	margin-right: 5px;
-	padding-right: 5px;
-	font-weight: 700;
-	font-size: 12px
+	padding-right: 5px
 }
 QWidget .QFrame#frame_CombinedBalances .QLabel#labelBalancez {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 26px;
-	font-weight: 400;
 	color: #324e6b
 }
 QWidget .QFrame#frame_CombinedBalances .QLabel#labelTotalTextz {
@@ -836,14 +786,10 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#labelTotalTextz {
 	min-width: 160px;
 	color: #324e6b;
 	margin-right: 5px;
-	padding-right: 5px;
-	font-weight: 700;
-	font-size: 12px
+	padding-right: 5px
 }
 QWidget .QFrame#frame_CombinedBalances .QLabel#labelTotalz {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	font-size: 26px;
-	font-weight: 400;
 	color: #324e6b
 }
 QWidget .QFrame#frame_RecentTransactions {
@@ -856,8 +802,6 @@ QWidget .QFrame#frame_RecentTransactions .QLabel#RecentTitle {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 180px;
 	background-color: transparent;
-	font-weight: 700;
-	font-size: 15px;
 	margin-right: 5px;
 	padding-right: 5px
 }
@@ -866,8 +810,6 @@ QWidget .QFrame#frame_RecentTransactions .QLabel#labelTransactionsStatus {
 	margin-left: 3px
 }
 QWidget .QFrame#frame_RecentTransactions QListView {
-	font-weight: 400;
-	font-size: 12px;
 	max-width: 369px;
 	margin-top: 12px;
 	margin-left: 0px;
@@ -885,9 +827,6 @@ QDialog#SendCoinsDialog .QFrame#frame_Send {
 	background-color: #ffffff;
 	margin-bottom: 6px
 }
-QDialog#SendCoinsDialog .QFrame#frameCoinControl {} QDialog#SendCoinsDialog .QFrame#frameCoinControl > .QLabel {
-	font-weight: 400
-}
 QDialog#SendCoinsDialog .QFrame#frameCoinControl .QPushButton#pushButtonCoinControl {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -898,30 +837,23 @@ QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLabel#labelCoinControlFeature
 	min-width: 160px;
 	background-color: transparent;
 	color: #5787bb;
-	font-weight: 700;
-	font-size: 14px;
 	margin-right: 5px;
 	padding-right: 5px
 }
 QDialog#SendCoinsDialog .QFrame#frameCoinControl .QWidget#widgetCoinControl {} QDialog#SendCoinsDialog .QFrame#frameCoinControl .QWidget#widgetCoinControl > .QLabel {
 	padding: 2px
 }
-QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLabel#labelCoinControlChangeLabel {
-	font-weight: 400
-}
 QDialog#SendCoinsDialog .QScrollArea#scrollArea .QWidget#scrollAreaWidgetContents {
 	background-color: #ffffff
 }
 QDialog#SendCoinsDialog .QCheckBox#checkUseObfuscation {
 	color: #616161;
-	font-weight: 700;
 	border-radius: 5px;
 	padding-top: 20px;
 	padding-bottom: 18px
 }
 QDialog#SendCoinsDialog .QCheckBox#checkSwiftTX {
 	color: #616161;
-	font-weight: 700;
 	border-radius: 5px;
 	padding-top: 20px;
 	padding-bottom: 18px;
@@ -939,7 +871,6 @@ QDialog#SendCoinsDialog QLabel#labelBalance {
 }
 QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel {
 	min-width: 10px;
-	font-weight: 700;
 	min-height: 25px;
 	margin-right: 5px;
 	padding-right: 5px
@@ -1047,7 +978,6 @@ QWidget#ReceiveCoinsDialog .QFrame#frame2 {
 }
 QWidget#ReceiveCoinsDialog .QFrame#frame2 > .QLabel {
 	min-width: 10px;
-	font-weight: 700;
 	min-height: 25px;
 	margin-right: 5px;
 	padding-right: 5px
@@ -1068,8 +998,6 @@ QWidget#ReceiveCoinsDialog .QFrame#frame2 QPushButton:pressed {
 }
 QWidget#ReceiveCoinsDialog .QFrame#frame .QLabel#label_6 {
 	color: #5787bb;
-	font-weight: 700;
-	font-size: 14px
 }
 QDialog#ReceiveRequestDialog QTextEdit {
 	border: 1px solid #d7d7d7
@@ -1086,7 +1014,6 @@ TransactionView QComboBox {
 }
 QLabel#transactionSumLabel {
 	color: #333333;
-	font-weight: 700
 }
 QLabel#transactionSum {
 	color: #333333
@@ -1118,8 +1045,7 @@ QCalendarView {
 	border: 1px solid #333
 }
 QCalendarWidget QWidget#qt_calendar_navigationbar {
-	background-color: #5787bb;
-	font-weight: 700
+	background-color: #5787bb
 }
 QCalendarWidget QAbstractItemView {
 	alternate-background-color: #dedbe5;
@@ -1132,9 +1058,7 @@ QCalendarWidget QAbstractItemView:disabled {
 	color: #818181
 }
 QWidget#frameObfuscation QLabel#ObfuscationTitle {
-	font-size: 15px;
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
-	background-color: transparent;
-	font-weight: 700
+	background-color: transparent
 }
