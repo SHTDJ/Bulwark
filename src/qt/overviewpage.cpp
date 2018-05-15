@@ -150,7 +150,7 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
             connect(timer, SIGNAL(timeout()), this, SLOT(obfuScationStatus()));
             timer->start(1000);
 	QFont font = QFont("Source Sans Pro", 15, 0);
-	ui->BalanceTitle.setFont(font);	
+	ui->BalanceTitle->setFont(font);	
         }
     }
 
