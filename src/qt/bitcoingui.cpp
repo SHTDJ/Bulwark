@@ -56,7 +56,7 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
-#include <QFont>
+#include <QFontDatabase>
 
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
