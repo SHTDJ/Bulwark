@@ -722,7 +722,6 @@ QWidget .QFrame#frame_Balances .QLabel#BalanceTitle {
 	min-width: 160px;
 	background-color: transparent;
 	font-weight: 700;
-	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15px;
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWalletStatus {
