@@ -16,6 +16,7 @@
 #include <vector>
 
 #include <QObject>
+#include <QFont>
 
 class AddressTableModel;
 class OptionsModel;
@@ -103,6 +104,8 @@ class WalletModel : public QObject
 public:
     explicit WalletModel(CWallet* wallet, OptionsModel* optionsModel, QObject* parent = 0);
     ~WalletModel();
+	static QFont fontRegular;
+	static QFont fontBold;
 
     enum StatusCode // Returned by sendCoins
     {
