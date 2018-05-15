@@ -121,6 +121,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
 	QFont fontRegular = QFont("Source Sans Pro Regular");
 	QFont fontBold = QFont("Source Sans Pro Bold");
 	QApplication::setFont(fontRegular);
+	ui->BalanceTitle->setFont(fontBold);
 
     QString windowTitle = tr("Bulwark Core") + " - ";
 #ifdef ENABLE_WALLET

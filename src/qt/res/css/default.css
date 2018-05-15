@@ -721,7 +721,6 @@ QWidget .QFrame#frame_Balances .QLabel#BalanceTitle {
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	min-width: 160px;
 	background-color: transparent;
-	font-weight: 700;
 	font-size: 15px;
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWalletStatus {
