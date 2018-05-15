@@ -183,7 +183,7 @@ BITCOIN_QT_H = \
 
 RES_FONTS = \
   qt/res/fonts/SourceSansPro-Regular.ttf \
-  qt/res/fonts/SourceSansPro-Bold.ttf \
+  qt/res/fonts/SourceSansPro-Bold.ttf 
 
 RES_ICONS = \
   qt/res/icons/history_m.png \
