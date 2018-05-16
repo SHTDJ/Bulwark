@@ -116,6 +116,11 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
+	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Bold");
+	QFont fontRegular = QFont("Source Sans Pro Regular");
+	QFont fontBold = QFont("Source Sans Pro Bold");
+	QApplication::setFont(fontRegular);
 	
 
     QString windowTitle = tr("Bulwark Core") + " - ";
@@ -130,7 +135,6 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     } else {
         windowTitle += tr("Node");
     }
-	QApplication::setFont(WalletModel::fontRegular);
     QString userWindowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
     if (!userWindowTitle.isEmpty()) windowTitle += " - " + userWindowTitle;
     windowTitle += " " + networkStyle->getTitleAddText();
