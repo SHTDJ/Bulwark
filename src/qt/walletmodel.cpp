@@ -51,8 +51,8 @@ WalletModel::WalletModel(CWallet* wallet, OptionsModel* optionsModel, QObject* p
     pollTimer->start(MODEL_UPDATE_DELAY);
 	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
 	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Bold");
-	WalletModel::fontRegular = QFont("Source Sans Pro Regular");
-	WalletModel::fontBold = QFont("Source Sans Pro Bold");
+	fontRegular = QFont("Source Sans Pro Regular");
+	fontBold = QFont("Source Sans Pro Bold");
 
     subscribeToCoreSignals();
 }
