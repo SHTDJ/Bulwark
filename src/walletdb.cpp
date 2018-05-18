@@ -188,7 +188,7 @@ bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<st
 	bool ret = true;
 	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			if (!Write(std::make_pair(std::string("multisendv2"), std::make_pair(i, j)), tMultiSend, true))
+			if (!Write(std::make_pair(std::string("multisendv2"), std::make_pair(i, j))))
 				ret = false;
 		}
 	}
@@ -630,7 +630,7 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
             ssKey >> i;
             std::tuple<std::string, std::string, int> tMultiSend;
             ssValue >> tMultiSend;
-			for (unsigned int j = 0; j < pwallet->vMultiSend->size(); j++) {
+			for (unsigned int j = 0; j < pwallet->vMultiSend.size(); j++) {
 				if (std::get<0>(tMultiSend) == pwallet->vMultiSend[j].first) {
 					pwallet->vMultiSend[j].second.push_back(std::make_pair(std::get<1>(tMultiSend), std::get<2>(tMultiSend)));
 				}
