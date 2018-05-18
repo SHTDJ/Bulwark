@@ -2062,7 +2062,7 @@ Value autocombinerewards(const Array& params, bool fHelp)
 
     return Value::null;
 }
-/*
+
 Array printMultiSend()
 {
     Array ret;
@@ -2082,15 +2082,15 @@ Array printMultiSend()
     ret.push_back("MultiSend Addresses to Send To:");
 
     Object vMS;
-    for (unsigned int i = 0; i < pwalletMain->vMultiSend.size(); i++) {
-        vMS.push_back(Pair("Address " + boost::lexical_cast<std::string>(i), pwalletMain->vMultiSend[i].first));
+    for (unsigned int i = 0; i < pwalletMain->vMultiSend[0].second.size(); i++) {
+        vMS.push_back(Pair("Address " + boost::lexical_cast<std::string>(i), pwalletMain->vMultiSend[1].second[i].first));
         vMS.push_back(Pair("Percent", pwalletMain->vMultiSend[i].second));
     }
 
     ret.push_back(vMS);
     return ret;
 }
-*/
+
 Array printAddresses()
 {
     std::vector<COutput> vCoins;
@@ -2123,8 +2123,8 @@ Array printAddresses()
 unsigned int sumMultiSend()
 {
     unsigned int sum = 0;
-    for (unsigned int i = 0; i < pwalletMain->vMultiSend.size(); i++)
-        sum += pwalletMain->vMultiSend[i].second;
+    for (unsigned int i = 0; i < pwalletMain->vMultiSend[0].second.size(); i++)
+        sum += pwalletMain->vMultiSend[i].second[i].second;
     return sum;
 }
 

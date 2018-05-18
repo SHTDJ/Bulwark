@@ -173,9 +173,9 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
     bool ret = true;
     for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			std::tuple<std::string,std::string, int> tMultiSend;
-			tMultiSend = std::make_tuple(vMultiSend[i].first, vMultiSend[i].second[j].first, vMultiSend[i].second[j].second);
-			if (!Write(std::make_pair(std::string("multisendv2"),std::make_pair(i,j)), tMultiSend, true))
+			std::pair<std::stringstd::pair<std::string, int>> pMultiSend;
+			tMultiSend = std::make_pair(vMultisend[i].first,vMultiSend[i].second[j].first, vMultiSend[i].second[j].second);
+			if (!Write(std::make_pair(std::string("multisendv2"),std::make_pair(i,j)), pMultiSend, true))
 				ret = false;
 		}
     }
@@ -628,16 +628,16 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
         {
             unsigned int i;
             ssKey >> i;
-            std::tuple<std::string, std::string, int> tMultiSend;
-            ssValue >> tMultiSend;
+            std::pair<std::string, std::pair<std::string, int>> pMultiSend;
+            ssValue >> pMultiSend;
 			for (unsigned int j = 0; j < pwallet->vMultiSend.size(); j++) {
-				if (std::get<0>(tMultiSend) == pwallet->vMultiSend[j].first) {
-					pwallet->vMultiSend[j].second.push_back(std::make_pair(std::get<1>(tMultiSend), std::get<2>(tMultiSend)));
+				if (pMultiSend.first == pwallet->vMultiSend[j].first) {
+					pwallet->vMultiSend[j].second.push_back(std::make_pair(pMultiSend.second.first, pMultiSend.second.second));
 				}
 			}
 			std::vector<std::pair<std::string, int>> vAddress;
-			vAddress.push_back(std::make_pair(std::get<1>(tMultiSend), std::get<2>(tMultiSend)));
-			pwallet->vMultiSend.push_back(std::make_pair(std::get<0>(tMultiSend),vAddress));
+			vAddress.push_back(std::make_pair(pMultiSend.second.first, pMultiSend.second.second));
+			pwallet->vMultiSend.push_back(std::make_pair(pMultiSend.first,vAddress));
         } else if (strType == "msettingsv2") //presstab HyperStake
         {
             std::pair<std::pair<bool, bool>, int> pSettings;
