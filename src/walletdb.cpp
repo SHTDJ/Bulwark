@@ -188,7 +188,7 @@ bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<st
 	bool ret = true;
 	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			if (!Write(std::make_pair(std::string("multisendv2"), std::make_pair(i, j))))
+			if (!Write(std::make_pair(std::string("multisendv2"), std::make_pair(i, j)))
 				ret = false;
 		}
 	}
