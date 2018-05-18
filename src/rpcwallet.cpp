@@ -2062,7 +2062,7 @@ Value autocombinerewards(const Array& params, bool fHelp)
 
     return Value::null;
 }
-
+/*
 Array printMultiSend()
 {
     Array ret;
@@ -2090,7 +2090,7 @@ Array printMultiSend()
     ret.push_back(vMS);
     return ret;
 }
-
+*/
 Array printAddresses()
 {
     std::vector<COutput> vCoins;
