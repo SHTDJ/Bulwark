@@ -173,7 +173,7 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
     bool ret = true;
     for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			std::pair<std::stringstd::pair<std::string, int>> pMultiSend;
+			std::pair<std::string,std::pair<std::string, int>> pMultiSend;
 			tMultiSend = std::make_pair(vMultisend[i].first,vMultiSend[i].second[j].first, vMultiSend[i].second[j].second);
 			if (!Write(std::make_pair(std::string("multisendv2"),std::make_pair(i,j)), pMultiSend, true))
 				ret = false;
