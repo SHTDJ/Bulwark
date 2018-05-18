@@ -3480,7 +3480,7 @@ bool CWallet::MultiSend()
 	bool isConfigured = false;
 		for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 			if (CBitcoinAddress(destMyAddress).ToString() == vMultiSend[i].first) {
-				vMultiSendAddressEntry = vMultisend[i];
+				vMultiSendAddressEntry = vMultisend[i].second;
 				isConfigured = true;
 			}
 		}
