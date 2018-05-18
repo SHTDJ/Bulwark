@@ -2084,7 +2084,7 @@ Array printMultiSend()
     Object vMS;
     for (unsigned int i = 0; i < pwalletMain->vMultiSend[0].second.size(); i++) {
         vMS.push_back(Pair("Address " + boost::lexical_cast<std::string>(i), pwalletMain->vMultiSend[1].second[i].first));
-        vMS.push_back(Pair("Percent", pwalletMain->vMultiSend[i].second));
+        vMS.push_back(Pair("Percent", pwalletMain->vMultiSend[i].second[i].second));
     }
 
     ret.push_back(vMS);
