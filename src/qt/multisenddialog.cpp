@@ -79,8 +79,6 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 		std::pair<std::string, std::vector<std::pair<std::string, int>>> pMultiSendAddress;
 		std::vector<std::pair<std::string, int>> vAddressConfig;
 		pwalletMain->vMultiSend.push_back(std::make_pair(address, vAddressConfig));
-		CWalletDB walletdb(pwalletMain->strWalletFile);
-		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 	}
 
 	QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
