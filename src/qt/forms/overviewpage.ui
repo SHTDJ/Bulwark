@@ -59,9 +59,9 @@
               <property name="font">
                <font>
                 <pointsize>8</pointsize>
-                <weight>50</weight>
+                <weight>75</weight>
                 <italic>false</italic>
-                <bold>false</bold>
+                <bold>true</bold>
                 <underline>false</underline>
                 <stylestrategy>PreferDefault</stylestrategy>
                </font>
