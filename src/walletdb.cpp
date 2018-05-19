@@ -171,28 +171,13 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
 {
     nWalletDBUpdated++;
     bool ret = true;
-    for (unsigned int i = 0; i < vMultiSend.size(); i++) {
-		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			std::pair<std::string,std::pair<std::string, int>> pMultiSend;
-			pMultiSend = std::make_pair(vMultiSend[i].first,std::make_pair(vMultiSend[i].second[j].first, vMultiSend[i].second[j].second));
-			if (!Write(std::make_pair(std::string("multisendv2"),std::make_pair(i,j)), pMultiSend, true))
-				ret = false;
-		}
-    }
-    return ret;
+	return !Write(std::string("multisendv2")), vMultiSend, true);
 }
 //presstab HyperStake
 bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend)
 {
 	nWalletDBUpdated++;
-	bool ret = true;
-	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
-		for (unsigned int j = 0; j < vMultiSend.size(); j++) {
-			if (!Erase(std::make_pair(std::string("multisendv2"), std::make_pair(i, j))))
-				ret = false;
-		}
-	}
-	return ret;
+	return !Erase(std::string("multisendv2"));
 }
 //presstab HyperStake
 bool CWalletDB::WriteMSettings(bool fMultiSendStake, bool fMultiSendMasternode, int nLastMultiSendHeight)
@@ -628,16 +613,9 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
         {
             unsigned int i;
             ssKey >> i;
-            std::pair<std::string, std::pair<std::string, int>> pMultiSend;
-            ssValue >> pMultiSend;
-			for (unsigned int j = 0; j < pwallet->vMultiSend.size(); j++) {
-				if (pMultiSend.first == pwallet->vMultiSend[j].first) {
-					pwallet->vMultiSend[j].second.push_back(std::make_pair(pMultiSend.second.first, pMultiSend.second.second));
-				}
-			}
-			std::vector<std::pair<std::string, int>> vAddress;
-			vAddress.push_back(std::make_pair(pMultiSend.second.first, pMultiSend.second.second));
-			pwallet->vMultiSend.push_back(std::make_pair(pMultiSend.first,vAddress));
+			std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend;
+            ssValue >> vMultiSend;
+			pwallet->vMultiSend = vMultiSend;
         } else if (strType == "msettingsv2") //presstab HyperStake
         {
             std::pair<std::pair<bool, bool>, int> pSettings;
