@@ -618,7 +618,7 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
             unsigned int i;
             ssKey >> i;
 			std::pair<std::string, std::vector<std::pair<std::string, int>>> pMultiSend;
-            ssValue >> vMultiSend;
+            ssValue >> pMultiSend;
 			pwallet->vMultiSend.push_back(pMultiSend);
         } else if (strType == "msettingsv2") //presstab HyperStake
         {
