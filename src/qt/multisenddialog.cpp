@@ -24,7 +24,7 @@ MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent),
     ui->setupUi(this);
     updateCheckBoxes();
 	for (int i = 0; i < pwalletMain->vMultiSend.size(); i++) {
-		addAddress(pwallet->vMultiSend[i].first,true);
+		addAddress(pwalletMain->vMultiSend[i].first,true);
 	}
 }
 
