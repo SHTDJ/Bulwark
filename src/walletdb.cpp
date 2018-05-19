@@ -171,7 +171,7 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
 {
     nWalletDBUpdated++;
     bool ret = true;
-	return !Write(std::string("multisendv2")), vMultiSend, true);
+	return !Write(std::string("multisendv2"), vMultiSend, true);
 }
 //presstab HyperStake
 bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend)
