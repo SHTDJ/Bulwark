@@ -24,7 +24,7 @@ MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent),
     ui->setupUi(this);
     updateCheckBoxes();
 	for (int i = 0; i < pwalletMain->vMultiSend.size(); i++) {
-		addFrame(pwallet->vMultiSend[i].first,true);
+		addAddress(pwallet->vMultiSend[i].first,true);
 	}
 }
 
@@ -78,7 +78,7 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	if (!onLoad){
 		std::pair<std::string, std::vector<std::pair<std::string, int>>> pMultiSendAddress;
 		std::vector<std::pair<std::string, int>> vAddressConfig;
-		pwallet->vMultiSend.push_back(std::make_pair(address, vAddressConfig));
+		pwalletMain->vMultiSend.push_back(std::make_pair(address, vAddressConfig));
 		CWalletDB walletdb(pwalletMain->strWalletFile);
 		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 	}
@@ -104,7 +104,7 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 
 	QLabel* addressLabel = new QLabel(addressFrame);
 	addressLabel->setObjectName(QStringLiteral("addressLabel"));
-	addressLabel->setText(address);
+	addressLabel->setText(QString::fromStdString(address));
 	addressLayout->addWidget(addressLabel);
 
 	QPushButton* addressConfigureButton = new QPushButton(addressFrame);
