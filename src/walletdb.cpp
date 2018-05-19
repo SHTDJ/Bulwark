@@ -171,7 +171,11 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
 {
     nWalletDBUpdated++;
     bool ret = true;
-	return !Write(std::string("multisendv2"), vMultiSend, true);
+	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
+		if (!Write(std::make_pair(std::string("multisendv2"),i), vMultiSend[i], true))
+			ret = false;
+	}
+	return ret;
 }
 //presstab HyperStake
 bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend)
@@ -613,9 +617,9 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
         {
             unsigned int i;
             ssKey >> i;
-			std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend;
+			std::pair<std::string, std::vector<std::pair<std::string, int>>> pMultiSend;
             ssValue >> vMultiSend;
-			pwallet->vMultiSend = vMultiSend;
+			pwallet->vMultiSend.push_back(pMultiSend);
         } else if (strType == "msettingsv2") //presstab HyperStake
         {
             std::pair<std::pair<bool, bool>, int> pSettings;
