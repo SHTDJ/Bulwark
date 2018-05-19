@@ -26,7 +26,7 @@ public:
     void setModel(WalletModel* model);
     
 private slots:
-	void addAddress(std::string address, bool onLoad)
+	void addAddress(std::string address, bool onLoad);
 	void deleteFrame();
     void on_activateButton_clicked();
     void on_disableButton_clicked();

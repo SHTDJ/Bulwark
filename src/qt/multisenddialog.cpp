@@ -68,7 +68,7 @@ void MultiSendDialog::on_addressBookButton_clicked()
 		AddressBookPage dlg(AddressBookPage::ForSelection, AddressBookPage::ReceivingTab, this);
 		dlg.setModel(model->getAddressTableModel());
 		if (dlg.exec()) {
-			addAddress(dlg.getReturnValue(), false);
+			addAddress(dlg.getReturnValue().toStdString(), false);
 		}
 	}
 
