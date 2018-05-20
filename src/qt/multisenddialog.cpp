@@ -176,5 +176,6 @@ void MultiSendDialog::on_disableButton_clicked()
         strRet = "MultiSend deactivated but writing settings to DB failed";
     else
         strRet = "MultiSend deactivated";
+	updateStatus();
     return;
 }
