@@ -10,6 +10,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QMessageBox>
 #include <boost/lexical_cast.hpp>
 #include <vector>
 #include <utility>
