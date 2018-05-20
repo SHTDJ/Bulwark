@@ -132,6 +132,9 @@
     </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>15</number>
+      </property>
       <property name="leftMargin">
        <number>10</number>
       </property>
@@ -145,9 +148,28 @@
        <number>5</number>
       </property>
       <item>
-       <widget class="QLabel" name="multiSendLabel">
+       <widget class="QLabel" name="multiSend">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
          <string>MultiSend Status:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="multiSendStatusLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Disabled</string>
         </property>
        </widget>
       </item>

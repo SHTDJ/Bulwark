@@ -47,7 +47,7 @@ void MultiSendDialog::updateCheckBoxes()
 
 void MultiSendDialog::updateStatus()
 {   
-	/*if (pwalletMain->fMultiSendStake && pwalletMain->fMultiSendMasternodeReward) {
+	if (pwalletMain->fMultiSendStake && pwalletMain->fMultiSendMasternodeReward) {
 		ui->multiSendStatusLabel->setText(QStringLiteral("Enabled for Staking and Masternodes"));
 	}
 	else if (pwalletMain->fMultiSendStake) {
@@ -59,7 +59,7 @@ void MultiSendDialog::updateStatus()
 	else {
 		ui->multiSendStatusLabel->setText(QStringLiteral("Disabled"));
 	}
-	*/
+	
 }
 
 void MultiSendDialog::on_addressBookButton_clicked()
@@ -145,11 +145,13 @@ void MultiSendDialog::deleteFrame() {
 	
 }
 
-void MultiSendDialog::on_activateButton_clicked() //TODO actually have an output for failure
+void MultiSendDialog::on_activateButton_clicked()
 {
     std::string strRet = "";
     if (!(ui->multiSendStakeCheckBox->isChecked() || ui->multiSendMasternodeCheckBox->isChecked())) {
-        strRet = "Need to select to send on stake and/or masternode rewards\n";
+		QMessageBox::information(this, tr("MultiSend Status"),
+			tr("Need to select to send for either staking or masternode rewards"),
+			QMessageBox::Ok, QMessageBox::Ok);
     } else {
         pwalletMain->fMultiSendStake = ui->multiSendStakeCheckBox->isChecked();
         pwalletMain->fMultiSendMasternodeReward = ui->multiSendMasternodeCheckBox->isChecked();
