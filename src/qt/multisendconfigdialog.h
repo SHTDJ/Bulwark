@@ -31,8 +31,9 @@ private slots:
 	void deleteFrame();
     void on_activateButton_clicked();
     void on_disableButton_clicked();
-    void on_addressBookButton_clicked();
-
+    void selectSendingAddress();
+	void pasteText();
+	void on_addEntryButton_clicked();
 
 };
 
