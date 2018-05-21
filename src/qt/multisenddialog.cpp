@@ -137,11 +137,11 @@ void MultiSendDialog::configureMultiSend() {
 
 	QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
 	if (!frame)return;
-	QLabel* lbl = addressFrame->findChild<QLabel*>("addressLabel");
+	QLabel* lbl = frame->findChild<QLabel*>("addressLabel");
 
 	if (!lbl)return;
 	std::string address = lbl->text().toStdString();
-	std::vector<std::pair<std::string, int>>* multiSendAddressEntry = vMultiSend[pwalletMain->indexOfMSAddress(address)];
+	std::vector<std::pair<std::string, int>>* multiSendAddressEntry = pwalletMain->vMultiSend[pwalletMain->indexOfMSAddress(address)];
 	MultiSendConfigDialog* multiSendConfigDialog = new MultiSendConfigDialog(this,address, multiSendAddressEntry);
 }
 
@@ -156,8 +156,6 @@ void MultiSendDialog::deleteFrame() {
 		walletdb.EraseMultiSend(pwalletMain->vMultiSend);
 		QLabel* lbl = addressFrame->findChild<QLabel*>("addressLabel");
 		pwalletMain->deleteMSAddress(lbl->text().toStdString());
-		CWalletDB walletdb(pwalletMain->strWalletFile);
-		walletdb.EraseMultiSend(pwalletMain->vMultiSend);
 		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 
 		delete frame;

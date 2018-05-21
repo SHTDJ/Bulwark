@@ -5,12 +5,12 @@
 #include "base58.h"
 #include "init.h"
 #include "walletmodel.h"
+#include "validatedlineedit.h"
 #include <QFrame>
 #include <QString>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QValidatedLineEdit>
 #include <QSpinBox>
 #include <algorithm>
 
