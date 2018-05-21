@@ -181,7 +181,12 @@ bool CWalletDB::WriteMultiSend(std::vector<std::pair<std::string,std::vector<std
 bool CWalletDB::EraseMultiSend(std::vector<std::pair<std::string, std::vector<std::pair<std::string, int>>>> vMultiSend)
 {
 	nWalletDBUpdated++;
-	return !Erase(std::string("multisendv2"));
+	bool ret = true;
+	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
+		if (!Erase(std::make_pair(std::string("multisendv2"), i)))
+			ret = false;
+	}
+	return ret;
 }
 //presstab HyperStake
 bool CWalletDB::WriteMSettings(bool fMultiSendStake, bool fMultiSendMasternode, int nLastMultiSendHeight)

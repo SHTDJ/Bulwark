@@ -95,12 +95,12 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	addressFrame->setObjectName(QStringLiteral("addressFrame"));
 
 	QVBoxLayout* frameLayout = new QVBoxLayout(addressFrame);
-	frameLayout->setSpacing(1);
+	frameLayout->setSpacing(2);
 	frameLayout->setObjectName(QStringLiteral("frameLayout"));
 	frameLayout->setContentsMargins(6, 6, 6, 6);
 
 	QHBoxLayout* addressLayout = new QHBoxLayout();
-	addressLayout->setSpacing(0);
+	addressLayout->setSpacing(4);
 	addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
 	QLabel* addressLabel = new QLabel(addressFrame);
@@ -110,28 +110,39 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 
 	QPushButton* addressConfigureButton = new QPushButton(addressFrame);
 	addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));
-	QIcon icon4;
-	icon4.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
-	addressConfigureButton->setIcon(icon4);
+	QIcon icon1;
+	icon1.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
+	addressConfigureButton->setIcon(icon1);
 	addressConfigureButton->setAutoDefault(false);
-	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(blank())); //TODO write method for configuring
+	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(configureMultiSend())); //TODO write method for configuring
 	addressLayout->addWidget(addressConfigureButton);
 
 	QPushButton* addressDeleteButton = new QPushButton(addressFrame);
 	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
-	QIcon icon5;
-	icon5.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
-	addressDeleteButton->setIcon(icon5);
+	QIcon icon2;
+	icon2.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
+	addressDeleteButton->setIcon(icon2);
 	addressDeleteButton->setAutoDefault(false);
 	connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
-
 	addressLayout->addWidget(addressDeleteButton);
+
+	
 	frameLayout->addLayout(addressLayout);
 	ui->addressList->addWidget(addressFrame);
 }
 
-void MultiSendDialog::blank() {
-	return;
+void MultiSendDialog::configureMultiSend() {
+	QWidget *buttonWidget = qobject_cast<QWidget*>(sender());
+	if (!buttonWidget)return;
+
+	QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
+	if (!frame)return;
+	QLabel* lbl = addressFrame->findChild<QLabel*>("addressLabel");
+
+	if (!lbl)return;
+	std::string address = lbl->text().toStdString();
+	std::vector<std::pair<std::string, int>>* multiSendAddressEntry = vMultiSend[pwalletMain->indexOfMSAddress(address)];
+	MultiSendConfigDialog* multiSendConfigDialog = new MultiSendConfigDialog(this,address, multiSendAddressEntry);
 }
 
 void MultiSendDialog::deleteFrame() {
@@ -141,6 +152,13 @@ void MultiSendDialog::deleteFrame() {
 
 		QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
 		if (!frame)return;
+		CWalletDB walletdb(pwalletMain->strWalletFile);
+		walletdb.EraseMultiSend(pwalletMain->vMultiSend);
+		QLabel* lbl = addressFrame->findChild<QLabel*>("addressLabel");
+		pwalletMain->deleteMSAddress(lbl->text().toStdString());
+		CWalletDB walletdb(pwalletMain->strWalletFile);
+		walletdb.EraseMultiSend(pwalletMain->vMultiSend);
+		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 
 		delete frame;
 	

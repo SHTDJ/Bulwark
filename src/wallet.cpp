@@ -26,6 +26,7 @@
 
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/thread.hpp>
+#include <algorithm>
 
 
 using namespace std;
@@ -3468,11 +3469,11 @@ bool CWallet::MultiSend()
         }
 
         //Disabled Addresses won't send MultiSend transactions
+		bool isDisabled = false;
         if (vDisabledAddresses.size() > 0) {
             for (unsigned int i = 0; i < vDisabledAddresses.size(); i++) {
                 if (vDisabledAddresses[i] == CBitcoinAddress(destMyAddress).ToString()) {
-                    LogPrintf("Multisend: disabled address preventing multisend\n");
-                    return false;
+					isDisabled = true;
                 }
             }
         }
@@ -3484,7 +3485,7 @@ bool CWallet::MultiSend()
 				isConfigured = true;
 			}
 		}
-		if (!isConfigured) {
+		if (!isConfigured || isDisabled) {
 			continue;
 		}
 
@@ -3556,6 +3557,32 @@ bool CWallet::MultiSend()
     }
 
     return true;
+}
+
+bool CWallet::isMSAddressEnabled(std::string address)
+{
+	return !(std::find(vDisabledAddresses.begin(), vDisabledAddresses.end(), address) != vDisabledAddresses.end());
+}
+
+int CWallet::indexOfMSAddress(std::string address)
+{
+	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
+		if (vMultiSend[i].first == address)return i;
+	}
+}
+
+void CWallet::enableMSAddress(std::string)
+{
+	vDisabledAddresses.erase(std::remove(vDisabledAddresses.begin(), vDisabledAddresses.end(), address), vDisabledAddresses.end());
+}
+
+void CWallet::deleteMSAddress(std::string address)
+{
+	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
+		if (vMultiSend[i].first == address) {
+			vMultiSend.erase(i);
+		}
+	}
 }
 
 CKeyPool::CKeyPool()

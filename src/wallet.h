@@ -419,6 +419,10 @@ public:
     bool ConvertList(std::vector<CTxIn> vCoins, std::vector<int64_t>& vecAmounts);
     bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime);
     bool MultiSend();
+	bool isMSAddressEnabled(std::string address);
+	int indexOfMSAddress(std::string address);
+	void enableMSAddress(std::string address);
+	void deleteMSAddress(std::string address);
     void AutoCombineDust();
 
     static CFeeRate minTxFee;
