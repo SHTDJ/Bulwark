@@ -5,7 +5,7 @@
 #include "base58.h"
 #include "init.h"
 #include "walletmodel.h"
-#include "validatedlineedit.h"
+#include "qvalidatedlineedit.h"
 #include <QFrame>
 #include <QString>
 #include <QtWidgets/QHBoxLayout>
