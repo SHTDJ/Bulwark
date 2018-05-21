@@ -19,9 +19,9 @@
 using namespace std;
 using namespace boost;
 
-MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent) : QDialog(parent),
-																								
-	
+MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent, std::string addy, std::vector<std::pair<std::string, int>>* addressEntry) : QDialog(parent),
+																address(addy),
+																vMultiSendAddressEntry(addressEntry),
 																ui(new Ui::MultiSendConfigDialog),
 																model(0)
 {
