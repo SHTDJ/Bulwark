@@ -3571,7 +3571,7 @@ int CWallet::indexOfMSAddress(std::string address)
 	}
 }
 
-void CWallet::enableMSAddress(std::string)
+void CWallet::enableMSAddress(std::string address)
 {
 	vDisabledAddresses.erase(std::remove(vDisabledAddresses.begin(), vDisabledAddresses.end(), address), vDisabledAddresses.end());
 }
@@ -3580,7 +3580,7 @@ void CWallet::deleteMSAddress(std::string address)
 {
 	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		if (vMultiSend[i].first == address) {
-			vMultiSend.erase(i);
+			vMultiSend.erase(vMultiSend.begin()+i);
 		}
 	}
 }
