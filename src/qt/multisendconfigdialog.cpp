@@ -91,7 +91,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		icon2.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
 		pasteButton->setIcon(icon2);
 		pasteButton->setAutoDefault(false);
-		connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
+		connect(pasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
 		addressLayout->addWidget(pasteButton);			
 
 		QPushButton* addressDeleteButton = new QPushButton(addressFrame);
