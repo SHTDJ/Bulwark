@@ -12,6 +12,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QSpinBox>
+#include <QClipboard>
 #include <algorithm>
 
 
@@ -71,7 +72,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		addressLine->setObjectName(QStringLiteral("addressLabel"));
 		addressLayout->addWidget(addressLine);
 
-		QSpinBox* percentageSpinBox = new QSPinBox(addressFrame);
+		QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
 		percentageSpinBox - setObjectName(QStringLiteral("percentageSpinBox"));
 		addressLayout->addWidget(percentageSpinBox);
 
