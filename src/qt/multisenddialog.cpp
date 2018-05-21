@@ -155,7 +155,7 @@ void MultiSendDialog::deleteFrame() {
 		if (!frame)return;
 		CWalletDB walletdb(pwalletMain->strWalletFile);
 		walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-		QLabel* lbl = addressFrame->findChild<QLabel*>("addressLabel");
+		QLabel* lbl = frame->findChild<QLabel*>("addressLabel");
 		pwalletMain->deleteMSAddress(lbl->text().toStdString());
 		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 
