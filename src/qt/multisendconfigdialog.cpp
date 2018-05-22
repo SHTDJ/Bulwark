@@ -171,7 +171,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
-		QFrame* addressEntry = ui->addressList->takeAt(i).widget();
+		QFrame* addressEntry = ui->addressList->takeAt(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
 		if (CBitcoinAddress(vle->text().toStdString()).isValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
@@ -180,7 +180,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 		}
 		else {
 			QMessageBox::Warning(this, tr("Invalid Address"),
-				tr(vle->text()),
+				tr("One of the entered Addresses is invalid"),
 				QMessageBox::Ok, QMessageBox::Ok);
 			return;
 		}
