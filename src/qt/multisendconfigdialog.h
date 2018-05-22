@@ -34,7 +34,7 @@ private slots:
     void selectSendingAddress();
 	void pasteText();
 	void on_addEntryButton_clicked();
-
+	void on_saveButton_clicked();
 };
 
 #endif // MULTISENDDIALOG_H

@@ -157,10 +157,35 @@ void MultiSendConfigDialog::deleteFrame() {
 
 void MultiSendConfigDialog::on_activateButton_clicked() //TODO actually have an output for failure
 {
-   
+   //if (!pwalletMain->isMSAddressEnabled(address))
 }
 
 void MultiSendConfigDialog::on_disableButton_clicked()
 {
   
+}
+
+void MultiSendConfigDialog::on_saveButton_clicked()
+{
+	std::vector <std::pair<std::string, int>> vSending;
+	std::pair<std::string, int> pMultiSendAddress;
+	for (unsigned int i = 0; i < ui->addressList->size(); i++) {
+		QFrame* addressEntry = ui->addressList->takeAt(i);
+		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
+		if (vle->checkValidity()) {
+			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
+			pMultiSendAddress = std::make_pair(vle->text().toStdString(),psb->value());
+			vSending.push_back(pMultiSendAddress);
+		}
+		else {
+			QMessageBox::Warning(this, tr("Invalid Address"),
+				tr(vle->text()),
+				QMessageBox::Ok, QMessageBox::Ok);
+			return;
+		}
+ }
+	CWalletDB walletdb(pwalletMain->strWalletFile);
+	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
+	pwalletMain->vMultiSend.push_back(std::make_pair(address,vSending));
+	walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 }
