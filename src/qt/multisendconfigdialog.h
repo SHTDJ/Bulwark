@@ -22,7 +22,7 @@ private:
 	std::string address;
 
 public:
-    explicit MultiSendConfigDialog(QWidget* parent, std::string addy, std::vector<std::pair<std::string, int>>* addressEntry);
+    explicit MultiSendConfigDialog(QWidget* parent, std::string addy);
     ~MultiSendConfigDialog();
     void setModel(WalletModel* model);
 	void loadEntry(std::pair<std::string,int> entry);

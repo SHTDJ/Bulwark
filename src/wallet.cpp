@@ -3569,6 +3569,7 @@ int CWallet::indexOfMSAddress(std::string address)
 	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
 		if (vMultiSend[i].first == address)return i;
 	}
+	return -1;
 }
 
 void CWallet::enableMSAddress(std::string address)

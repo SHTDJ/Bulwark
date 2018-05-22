@@ -21,7 +21,7 @@
 using namespace std;
 using namespace boost;
 
-MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent, std::string addy, std::vector<std::pair<std::string, int>>* addressEntry) : QDialog(parent),
+MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent, std::string addy) : QDialog(parent),
 																address(addy),
 																ui(new Ui::MultiSendConfigDialog),
 																model(0)
@@ -70,9 +70,8 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	addressLayout->setSpacing(4);
 	addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
-	QValidatedLineEdit* addressLine = new QValidatedLineEdit(addressFrame);
+	QValidatedLineEdit* addressLine = new QValidatedLineEdit(QString::fromStdString(entry.first),addressFrame);
 	addressLine->setObjectName(QStringLiteral("addressLine"));
-	addressLine->setText(entry.first);
 	addressLayout->addWidget(addressLine);
 
 	QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
@@ -232,9 +231,16 @@ void MultiSendConfigDialog::on_disableButton_clicked()
 
 void MultiSendConfigDialog::on_saveButton_clicked()
 {
+	int indexOfEntry = pwalletMain->indexOfMSAddress(address);
+	if (indexOfEntry == -1) {
+		QMessageBox::warning(this, tr("Address not found"),
+			tr("Address does not exist inside MultiSend vector anymore"),
+			QMessageBox::Ok, QMessageBox::Ok);
+		return;
+	}
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
-	vMultiSendAddressEntry->clear();
+	pwalletMain->vMultiSend[indexOfEntry].second.clear();
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
 		QWidget* addressEntry = ui->addressList->takeAt(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
@@ -252,6 +258,16 @@ void MultiSendConfigDialog::on_saveButton_clicked()
  }
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-	pwalletMain->vMultiSend[pwalletMain->indexOfMSAddress(address)].second.push_back(vSending);
-	walletdb.WriteMultiSend(pwalletMain->vMultiSend);
+	int indexOfEntry = pwalletMain->indexOfMSAddress(address);
+	if (indexOfEntry == -1) {
+		QMessageBox::warning(this, tr("Address not found"),
+			tr("Address does not exist inside MultiSend vector anymore"),
+			QMessageBox::Ok, QMessageBox::Ok);
+		return;
+	}
+	else {
+		pwalletMain->vMultiSend[indexOfEntry].second.push_back(vSending);
+		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
+	}
+	
 }
