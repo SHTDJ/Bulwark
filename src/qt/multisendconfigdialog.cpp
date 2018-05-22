@@ -13,6 +13,7 @@
 #include <QtWidgets/QPushButton>
 #include <QSpinBox>
 #include <QClipboard>
+#include <QMessageBox>
 #include <algorithm>
 
 
