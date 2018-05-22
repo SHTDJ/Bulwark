@@ -122,7 +122,7 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	icon1.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
 	addressConfigureButton->setIcon(icon1);
 	addressConfigureButton->setAutoDefault(false);
-	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(configureMultiSend())); //TODO write method for configuring
+	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(configureMultiSend()));
 	addressLayout->addWidget(addressConfigureButton);
 
 	QPushButton* addressDeleteButton = new QPushButton(addressFrame);

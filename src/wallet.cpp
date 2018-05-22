@@ -3572,20 +3572,6 @@ int CWallet::indexOfMSAddress(std::string address)
 	return -1;
 }
 
-void CWallet::enableMSAddress(std::string address)
-{
-	vDisabledAddresses.erase(std::remove(vDisabledAddresses.begin(), vDisabledAddresses.end(), address), vDisabledAddresses.end());
-}
-
-void CWallet::deleteMSAddress(std::string address)
-{
-	for (unsigned int i = 0; i < vMultiSend.size(); i++) {
-		if (vMultiSend[i].first == address) {
-			vMultiSend.erase(vMultiSend.begin()+i);
-		}
-	}
-}
-
 CKeyPool::CKeyPool()
 {
     nTime = GetTime();

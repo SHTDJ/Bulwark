@@ -421,8 +421,6 @@ public:
     bool MultiSend();
 	bool isMSAddressEnabled(std::string address);
 	int indexOfMSAddress(std::string address);
-	void enableMSAddress(std::string address);
-	void deleteMSAddress(std::string address);
     void AutoCombineDust();
 
     static CFeeRate minTxFee;

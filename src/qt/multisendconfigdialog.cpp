@@ -225,14 +225,18 @@ void MultiSendConfigDialog::deleteFrame() {
 	
 }
 
-void MultiSendConfigDialog::on_activateButton_clicked() //TODO actually have an output for failure
+void MultiSendConfigDialog::on_activateButton_clicked()
 {
-   //if (!pwalletMain->isMSAddressEnabled(address))
+	if (!pwalletMain->isMSAddressEnabled(address)) {	
+			pwalletMain->vDisabledAdresses.erase(std::remove(pwalletMain->vDisabledAdresses.begin(), pwalletMain->vDisabledAdresses.end(), address), pwalletMain->vDisabledAdresses.end());
+   }
 }
 
 void MultiSendConfigDialog::on_disableButton_clicked()
 {
-  
+	if (pwalletMain->isMSAddressEnabled(address)) {
+		pwalletMain->vDisabledAddresses.push_back(address);
+  }
 }
 
 void MultiSendConfigDialog::on_saveButton_clicked()
