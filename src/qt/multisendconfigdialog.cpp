@@ -256,7 +256,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 		if (CBitcoinAddress(vle->text().toStdString()).IsValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
 			pMultiSendAddress = std::make_pair(vle->text().toStdString(), psb->value());
-			if (std::find(vSending.begin(), vSending.end(), pMultiSendAddress) != vSending.end()) {
+			if (!(std::find(vSending.begin(), vSending.end(), pMultiSendAddress) != vSending.end())) {
 				vSending.push_back(pMultiSendAddress);
 			}
 			else {
