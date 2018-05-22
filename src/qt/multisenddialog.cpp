@@ -166,7 +166,7 @@ void MultiSendDialog::deleteFrame() {
 		QLabel* lbl = frame->findChild<QLabel*>("addressLabel");
 		std::string address = lbl->text().toStdString();
 		for (unsigned int i = 0; i < pwalletMain->vMultiSend.size(); i++) {
-			if (pwalletMain->vMultiSend[i].first==addAddress) {
+			if (pwalletMain->vMultiSend[i].first==address) {
 				pwalletMain->vMultiSend.erase(pwalletMain->vMultiSend.begin() + i);
 				break;
 			}
