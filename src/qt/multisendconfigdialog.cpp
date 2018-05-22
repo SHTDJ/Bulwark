@@ -215,6 +215,11 @@ void MultiSendConfigDialog::deleteFrame() {
 
 		QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
 		if (!frame)return;
+		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
+		if (!vle)return;
+		QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
+		vEntriesToDelete.push_back(std::make_pair<vle->text().toStdString(), psb->value()>);
+
 
 		delete frame;
 	
@@ -257,6 +262,9 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 			return;
 		}
  }
+	for (unsigned int i = 0; i < vEntriesToDelete.size(); i++) {
+		vSending.erase(std::remove(vSending.begin(), vSending.end(), vEntriesToDelete[i]), vec.end());
+	}
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
 		pwalletMain->vMultiSend[indexOfEntry].second = vSending;

@@ -20,6 +20,7 @@ private:
 	Ui::MultiSendConfigDialog* ui;
 	WalletModel* model;
 	std::string address;
+	std::vector < std::pair<std::string, int>> vEntriesToDelete;
 
 public:
     explicit MultiSendConfigDialog(QWidget* parent, std::string addy);
