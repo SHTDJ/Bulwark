@@ -246,14 +246,21 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 	}
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
-	pwalletMain->vMultiSend[indexOfEntry].second.clear();
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
 		QWidget* addressEntry = ui->addressList->takeAt(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
 		if (CBitcoinAddress(vle->text().toStdString()).IsValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
-			pMultiSendAddress = std::make_pair(vle->text().toStdString(),psb->value());
-			vSending.push_back(pMultiSendAddress);
+			pMultiSendAddress = std::make_pair(vle->text().toStdString(), psb->value());
+			if (std::find(vSending.begin(), vSending.end(), pMultiSendAddress) != vSending.end()) {
+				vSending.push_back(pMultiSendAddress);
+			}
+			else {
+				QMessageBox::warning(this, tr("Duplicate Address"),
+					tr("One of the entered Addresses is a duplicate"),
+					QMessageBox::Ok, QMessageBox::Ok);
+				return;
+			}	
 		}
 		else {
 			QMessageBox::warning(this, tr("Invalid Address"),
@@ -261,12 +268,13 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 				QMessageBox::Ok, QMessageBox::Ok);
 			return;
 		}
+		pwalletMain->vMultiSend[indexOfEntry].second.clear();
  }
 	for (unsigned int i = 0; i < vEntriesToDelete.size(); i++) {
 		vSending.erase(std::remove(vSending.begin(), vSending.end(), vEntriesToDelete[i]), vSending.end());
 	}
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-		pwalletMain->vMultiSend[indexOfEntry].second = vSending;
-		walletdb.WriteMultiSend(pwalletMain->vMultiSend);	
+	pwalletMain->vMultiSend[indexOfEntry].second = vSending;
+	walletdb.WriteMultiSend(pwalletMain->vMultiSend);	
 }

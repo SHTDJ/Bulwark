@@ -70,7 +70,14 @@ void MultiSendDialog::on_addressBookButton_clicked()
 		AddressBookPage dlg(AddressBookPage::ForSelection, AddressBookPage::ReceivingTab, this);
 		dlg.setModel(model->getAddressTableModel());
 		if (dlg.exec()) {
-			addAddress(dlg.getReturnValue().toStdString(), false);
+			if (pwalletMain->indexOfMSAddress(dlg.getReturnValue().toStdString()) == -1) {
+				addAddress(dlg.getReturnValue().toStdString(), false);
+			}
+			else {
+				QMessageBox::warning(this, tr("MultiSend Status"),
+					tr("Address is already contained in MultiSend Vecotr"),
+					QMessageBox::Ok, QMessageBox::Ok);
+			}
 		}
 	}
 
