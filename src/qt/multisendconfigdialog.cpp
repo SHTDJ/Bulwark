@@ -228,7 +228,7 @@ void MultiSendConfigDialog::deleteFrame() {
 void MultiSendConfigDialog::on_activateButton_clicked()
 {
 	if (!pwalletMain->isMSAddressEnabled(address)) {	
-			pwalletMain->vDisabledAdresses.erase(std::remove(pwalletMain->vDisabledAdresses.begin(), pwalletMain->vDisabledAdresses.end(), address), pwalletMain->vDisabledAdresses.end());
+			pwalletMain->vDisabledAddresses.erase(std::remove(pwalletMain->vDisabledAddresses.begin(), pwalletMain->vDisabledAddresses.end(), address), pwalletMain->vDisabledAddresses.end());
    }
 }
 
