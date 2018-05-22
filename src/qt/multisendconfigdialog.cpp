@@ -263,7 +263,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 		}
  }
 	for (unsigned int i = 0; i < vEntriesToDelete.size(); i++) {
-		vSending.erase(std::remove(vSending.begin(), vSending.end(), vEntriesToDelete[i]), vec.end());
+		vSending.erase(std::remove(vSending.begin(), vSending.end(), vEntriesToDelete[i]), vSending.end());
 	}
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
