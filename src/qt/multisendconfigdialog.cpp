@@ -179,7 +179,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 			vSending.push_back(pMultiSendAddress);
 		}
 		else {
-			QMessageBox::Warning(this, tr("Invalid Address"),
+			QMessageBox::warning(this, tr("Invalid Address"),
 				tr("One of the entered Addresses is invalid"),
 				QMessageBox::Ok, QMessageBox::Ok);
 			return;
