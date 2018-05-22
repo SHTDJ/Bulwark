@@ -267,12 +267,12 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 				tr("One of the entered Addresses is invalid"),
 				QMessageBox::Ok, QMessageBox::Ok);
 			return;
-		}
-		pwalletMain->vMultiSend[indexOfEntry].second.clear();
+		}		
  }
 	for (unsigned int i = 0; i < vEntriesToDelete.size(); i++) {
 		vSending.erase(std::remove(vSending.begin(), vSending.end(), vEntriesToDelete[i]), vSending.end());
 	}
+	pwalletMain->vMultiSend[indexOfEntry].second.clear();
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
 	pwalletMain->vMultiSend[indexOfEntry].second = vSending;
