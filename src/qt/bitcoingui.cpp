@@ -116,11 +116,6 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
-	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular");
-	QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Bold");
-	QFont fontRegular = QFont("Source Sans Pro");
-	QFont fontBold = QFont("Source Sans Pro Bold");
-	QApplication::setFont(fontBold);
 
 	
 
