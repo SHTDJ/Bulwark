@@ -27,8 +27,10 @@ MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent, std::string addy, 
 																ui(new Ui::MultiSendConfigDialog),
 																model(0)
 {
-    ui->setupUi(this);
-
+    ui->setupUi(this); 
+	for (unsigned int i = 0; i < vMultiSendAddressEntry->size(); i++) {
+		loadEntry(vMultiSendAddressEntry[i]);
+	}
     updateStatus();
 }
 
@@ -45,6 +47,68 @@ void MultiSendConfigDialog::setModel(WalletModel* model)
 void MultiSendConfigDialog::updateStatus()
 {   
 
+}
+
+void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
+{
+	QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+	sizePolicy.setHorizontalStretch(0);
+	sizePolicy.setVerticalStretch(0);
+	QFrame* addressFrame = new QFrame();
+	sizePolicy.setHeightForWidth(addressFrame->sizePolicy().hasHeightForWidth());
+	addressFrame->setSizePolicy(sizePolicy);
+	addressFrame->setFrameShape(QFrame::StyledPanel);
+	addressFrame->setFrameShadow(QFrame::Raised);
+	addressFrame->setObjectName(QStringLiteral("addressFrame"));
+
+	QVBoxLayout* frameLayout = new QVBoxLayout(addressFrame);
+	frameLayout->setSpacing(2);
+	frameLayout->setObjectName(QStringLiteral("frameLayout"));
+	frameLayout->setContentsMargins(6, 6, 6, 6);
+
+	QHBoxLayout* addressLayout = new QHBoxLayout();
+	addressLayout->setSpacing(4);
+	addressLayout->setObjectName(QStringLiteral("addressLayout"));
+
+	QValidatedLineEdit* addressLine = new QValidatedLineEdit(addressFrame);
+	addressLine->setObjectName(QStringLiteral("addressLine"));
+	addressLine->setText(entry.first);
+	addressLayout->addWidget(addressLine);
+
+	QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
+	percentageSpinBox->setObjectName(QStringLiteral("percentageSpinBox"));
+	percentageSpinBox->setValue(entry.second);
+	addressLayout->addWidget(percentageSpinBox);
+
+	QPushButton* sendingAddressButton = new QPushButton(addressFrame);
+	sendingAddressButton->setObjectName(QStringLiteral("sendingAddressButton"));
+	QIcon icon1;
+	icon1.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
+	sendingAddressButton->setIcon(icon1);
+	sendingAddressButton->setAutoDefault(false);
+	connect(sendingAddressButton, SIGNAL(clicked()), this, SLOT(selectSendingAddress()));
+	addressLayout->addWidget(sendingAddressButton);
+
+	QPushButton* pasteButton = new QPushButton(addressFrame);
+	pasteButton->setObjectName(QStringLiteral("pasteButton"));
+	QIcon icon2;
+	icon2.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
+	pasteButton->setIcon(icon2);
+	pasteButton->setAutoDefault(false);
+	connect(pasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
+	addressLayout->addWidget(pasteButton);
+
+	QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
+	QIcon icon3;
+	icon3.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
+	addressDeleteButton->setIcon(icon3);
+	addressDeleteButton->setAutoDefault(false);
+	connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
+	addressLayout->addWidget(addressDeleteButton);
+
+	frameLayout->addLayout(addressLayout);
+	ui->addressList->addWidget(addressFrame);
 }
 
 void MultiSendConfigDialog::on_addEntryButton_clicked()
@@ -170,6 +234,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 {
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
+	vMultiSendAddressEntry->clear();
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
 		QWidget* addressEntry = ui->addressList->takeAt(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
@@ -187,6 +252,6 @@ void MultiSendConfigDialog::on_saveButton_clicked()
  }
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-	pwalletMain->vMultiSend.push_back(std::make_pair(address,vSending));
+	pwalletMain->vMultiSendAddressEntry->push_back(vSending);
 	walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 }
