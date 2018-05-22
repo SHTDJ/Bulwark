@@ -251,7 +251,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
-		QWidget* addressEntry = ui->addressList->value(i)->widget();
+		QWidget* addressEntry = ui->addressList->itemAt(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
 		if (CBitcoinAddress(vle->text().toStdString()).IsValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
