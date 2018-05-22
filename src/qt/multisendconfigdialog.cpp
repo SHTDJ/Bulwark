@@ -70,8 +70,9 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	addressLayout->setSpacing(4);
 	addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
-	QValidatedLineEdit* addressLine = new QValidatedLineEdit(QString::fromStdString(entry.first),addressFrame);
+	QValidatedLineEdit* addressLine = new QValidatedLineEdit(addressFrame);
 	addressLine->setObjectName(QStringLiteral("addressLine"));
+	adressLine->setText(QString::fromStdString(entry.first));
 	addressLayout->addWidget(addressLine);
 
 	QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
@@ -258,16 +259,6 @@ void MultiSendConfigDialog::on_saveButton_clicked()
  }
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-	int indexOfEntry = pwalletMain->indexOfMSAddress(address);
-	if (indexOfEntry == -1) {
-		QMessageBox::warning(this, tr("Address not found"),
-			tr("Address does not exist inside MultiSend vector anymore"),
-			QMessageBox::Ok, QMessageBox::Ok);
-		return;
-	}
-	else {
-		pwalletMain->vMultiSend[indexOfEntry].second.push_back(vSending);
-		walletdb.WriteMultiSend(pwalletMain->vMultiSend);
-	}
-	
+		pwalletMain->vMultiSend[indexOfEntry].push_back(vSending);
+		walletdb.WriteMultiSend(pwalletMain->vMultiSend);	
 }
