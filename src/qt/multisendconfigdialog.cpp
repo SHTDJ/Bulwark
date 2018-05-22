@@ -73,7 +73,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		addressLayout->addWidget(addressLine);
 
 		QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
-		percentageSpinBox - setObjectName(QStringLiteral("percentageSpinBox"));
+		percentageSpinBox -> setObjectName(QStringLiteral("percentageSpinBox"));
 		addressLayout->addWidget(percentageSpinBox);
 
 		QPushButton* sendingAddressButton = new QPushButton(addressFrame);
