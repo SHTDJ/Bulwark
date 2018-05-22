@@ -23,13 +23,13 @@ using namespace boost;
 
 MultiSendConfigDialog::MultiSendConfigDialog(QWidget* parent, std::string addy, std::vector<std::pair<std::string, int>>* addressEntry) : QDialog(parent),
 																address(addy),
-																vMultiSendAddressEntry(addressEntry),
 																ui(new Ui::MultiSendConfigDialog),
 																model(0)
 {
-    ui->setupUi(this); 
-	for (unsigned int i = 0; i < vMultiSendAddressEntry->size(); i++) {
-		loadEntry(vMultiSendAddressEntry[i]);
+    ui->setupUi(this);
+	unsigned int indexOfEntry = pwalletMain->indexOfMSAddress(address);
+	for (unsigned int i = 0; i < pwalletMain->vMultiSend[indexOfEntry].second.size(); i++) {
+		loadEntry(pwalletMain->vMultiSend[indexOfEntry].second[i]);
 	}
     updateStatus();
 }
@@ -252,6 +252,6 @@ void MultiSendConfigDialog::on_saveButton_clicked()
  }
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-	pwalletMain->vMultiSendAddressEntry->push_back(vSending);
+	pwalletMain->vMultiSend[pwalletMain->indexOfMSAddress(address)].second.push_back(vSending);
 	walletdb.WriteMultiSend(pwalletMain->vMultiSend);
 }
