@@ -215,9 +215,9 @@ void MultiSendConfigDialog::deleteFrame() {
 
 		QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
 		if (!frame)return;
-		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
+		QValidatedLineEdit* vle = frame->findChild<QValidatedLineEdit*>("addressLine");
 		if (!vle)return;
-		QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
+		QSpinBox* psb = frame->findChild<QSpinBox*>("percentageSpinBox");
 		vEntriesToDelete.push_back(std::make_pair<vle->text().toStdString(), psb->value()>);
 
 
