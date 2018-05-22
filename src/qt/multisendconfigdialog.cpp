@@ -169,10 +169,10 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 {
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
-	for (unsigned int i = 0; i < ui->addressList->size(); i++) {
-		QFrame* addressEntry = ui->addressList->takeAt(i);
+	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
+		QFrame* addressEntry = ui->addressList->takeAt(i).widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
-		if (vle->checkValidity()) {
+		if (CBitcoinAddress(vle->text().toStdString()).isValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
 			pMultiSendAddress = std::make_pair(vle->text().toStdString(),psb->value());
 			vSending.push_back(pMultiSendAddress);
