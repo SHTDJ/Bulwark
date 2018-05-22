@@ -69,7 +69,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
 		QValidatedLineEdit* addressLine = new QValidatedLineEdit(addressFrame);
-		addressLine->setObjectName(QStringLiteral("addressLabel"));
+		addressLine->setObjectName(QStringLiteral("addressLine"));
 		addressLayout->addWidget(addressLine);
 
 		QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);

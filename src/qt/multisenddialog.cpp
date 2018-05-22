@@ -144,6 +144,7 @@ void MultiSendDialog::configureMultiSend() {
 	std::string address = lbl->text().toStdString();
 	std::vector<std::pair<std::string, int>>* multiSendAddressEntry = & pwalletMain->vMultiSend[pwalletMain->indexOfMSAddress(address)].second;
 	MultiSendConfigDialog* multiSendConfigDialog = new MultiSendConfigDialog(this,address, multiSendAddressEntry);
+	multiSendConfigDialog->setModel(model);
 	multiSendConfigDialog->show();
 }
 

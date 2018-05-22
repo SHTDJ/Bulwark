@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>658</width>
+    <width>664</width>
     <height>393</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>110</y>
-     <width>759</width>
+     <width>641</width>
      <height>261</height>
     </rect>
    </property>
@@ -36,7 +36,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>757</width>
+      <width>639</width>
       <height>259</height>
      </rect>
     </property>
@@ -92,7 +92,7 @@ Set the percentage of your rewards you want to send for each individual address.
       <item>
        <widget class="QPushButton" name="activateButton">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -108,7 +108,7 @@ Set the percentage of your rewards you want to send for each individual address.
       <item>
        <widget class="QPushButton" name="disableButton">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -134,10 +134,10 @@ Set the percentage of your rewards you want to send for each individual address.
       <property name="text">
        <string/>
       </property>
-	  <property name="icon">
-         <iconset resource="../bulwark.qrc">
-          <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
-        </property>
+      <property name="icon">
+       <iconset resource="../bulwark.qrc">
+        <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+      </property>
      </widget>
     </item>
    </layout>
