@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>393</height>
+    <width>702</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>110</y>
-     <width>641</width>
+     <width>681</width>
      <height>261</height>
     </rect>
    </property>
@@ -36,7 +36,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>639</width>
+      <width>679</width>
       <height>259</height>
      </rect>
     </property>
@@ -65,7 +65,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>641</width>
+     <width>681</width>
      <height>91</height>
     </rect>
    </property>
@@ -83,7 +83,8 @@
       </property>
       <property name="text">
        <string>Add an address to send a portion of your Staking and Masternode Rewards.
-Set the percentage of your rewards you want to send for each individual address.</string>
+Set the percentage of your rewards you want to send for each individual address
+ Your settings wont be saved unless your hit save.</string>
       </property>
      </widget>
     </item>
@@ -124,21 +125,36 @@ Set the percentage of your rewards you want to send for each individual address.
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="addEntryButton">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="../bulwark.qrc">
-        <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="addEntryButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../bulwark.qrc">
+          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string/>
+        </property>
+		<property name="icon">
+         <iconset resource="../bulwark.qrc">
+          <normaloff>:/icons/filesave</normaloff>:/icons/filesave</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
