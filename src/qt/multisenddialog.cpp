@@ -75,7 +75,7 @@ void MultiSendDialog::on_addressBookButton_clicked()
 			}
 			else {
 				QMessageBox::warning(this, tr("MultiSend Status"),
-					tr("Address is already contained in MultiSend Vecotr"),
+					tr("Address is already contained in MultiSend Vector"),
 					QMessageBox::Ok, QMessageBox::Ok);
 			}
 		}
@@ -181,18 +181,14 @@ void MultiSendDialog::on_activateButton_clicked()
 {
     std::string strRet = "";
     if (!(ui->multiSendStakeCheckBox->isChecked() || ui->multiSendMasternodeCheckBox->isChecked())) {
-		QMessageBox::information(this, tr("MultiSend Status"),
+		QMessageBox::warning(this, tr("MultiSend Status"),
 			tr("Need to select to send for either staking or masternode rewards"),
 			QMessageBox::Ok, QMessageBox::Ok);
     } else {
         pwalletMain->fMultiSendStake = ui->multiSendStakeCheckBox->isChecked();
         pwalletMain->fMultiSendMasternodeReward = ui->multiSendMasternodeCheckBox->isChecked();
-
         CWalletDB walletdb(pwalletMain->strWalletFile);
-        if (!walletdb.WriteMSettings(pwalletMain->fMultiSendStake, pwalletMain->fMultiSendMasternodeReward, pwalletMain->nLastMultiSendHeight))
-            strRet = "MultiSend activated but writing settings to DB failed";
-        else
-            strRet = "MultiSend activated";
+		walletdb.WriteMSettings(pwalletMain->fMultiSendStake, pwalletMain->fMultiSendMasternodeReward, pwalletMain->nLastMultiSendHeight);
     }
 	updateStatus();
     return;
@@ -200,13 +196,9 @@ void MultiSendDialog::on_activateButton_clicked()
 
 void MultiSendDialog::on_disableButton_clicked()
 {
-    std::string strRet;
     pwalletMain->setMultiSendDisabled();
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    if (!walletdb.WriteMSettings(false, false, pwalletMain->nLastMultiSendHeight))
-        strRet = "MultiSend deactivated but writing settings to DB failed";
-    else
-        strRet = "MultiSend deactivated";
+	walletdb.WriteMSettings(false, false, pwalletMain->nLastMultiSendHeight);
 	updateStatus();
     return;
 }

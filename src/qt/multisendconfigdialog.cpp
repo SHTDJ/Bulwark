@@ -244,14 +244,14 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 	int indexOfEntry = pwalletMain->indexOfMSAddress(address);
 	if (indexOfEntry == -1) {
 		QMessageBox::warning(this, tr("Address not found"),
-			tr("Address does not exist inside MultiSend vector anymore"),
+			tr("Address does not exist inside MultiSend Vector anymore"),
 			QMessageBox::Ok, QMessageBox::Ok);
 		return;
 	}
 	std::vector <std::pair<std::string, int>> vSending;
 	std::pair<std::string, int> pMultiSendAddress;
 	for (unsigned int i = 0; i < ui->addressList->count(); i++) {
-		QWidget* addressEntry = ui->addressList->takeAt(i)->widget();
+		QWidget* addressEntry = ui->addressList->value(i)->widget();
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
 		if (CBitcoinAddress(vle->text().toStdString()).IsValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
