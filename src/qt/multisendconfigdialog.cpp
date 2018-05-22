@@ -72,7 +72,7 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 
 	QValidatedLineEdit* addressLine = new QValidatedLineEdit(addressFrame);
 	addressLine->setObjectName(QStringLiteral("addressLine"));
-	adressLine->setText(QString::fromStdString(entry.first));
+	addressLine->setText(QString::fromStdString(entry.first));
 	addressLayout->addWidget(addressLine);
 
 	QSpinBox* percentageSpinBox = new QSpinBox(addressFrame);
@@ -259,6 +259,6 @@ void MultiSendConfigDialog::on_saveButton_clicked()
  }
 	CWalletDB walletdb(pwalletMain->strWalletFile);
 	walletdb.EraseMultiSend(pwalletMain->vMultiSend);
-		pwalletMain->vMultiSend[indexOfEntry].push_back(vSending);
+		pwalletMain->vMultiSend[indexOfEntry].second = vSending;
 		walletdb.WriteMultiSend(pwalletMain->vMultiSend);	
 }
