@@ -331,8 +331,6 @@ QHeaderView::section:last {
 }
 QDialog#MultiSendDialog QScrollArea{
 	border: 1px solid #0;
-	background-color: #ffffff
-	color: #ffffff	
 }
 QTableView::item {
 	background-color: #fcfcfc;

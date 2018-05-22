@@ -83,8 +83,8 @@
       </property>
       <property name="text">
        <string>Add an address to send a portion of your Staking and Masternode Rewards.
-Set the percentage of your rewards you want to send for each individual address
- Your settings wont be saved unless your hit save.</string>
+Set the percentage of your rewards you want to send for each individual address.
+Your settings wont be saved unless your hit save.</string>
       </property>
      </widget>
     </item>
@@ -148,7 +148,7 @@ Set the percentage of your rewards you want to send for each individual address
         <property name="text">
          <string/>
         </property>
-		<property name="icon">
+        <property name="icon">
          <iconset resource="../bulwark.qrc">
           <normaloff>:/icons/filesave</normaloff>:/icons/filesave</iconset>
         </property>
