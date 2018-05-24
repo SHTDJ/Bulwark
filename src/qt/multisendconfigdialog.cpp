@@ -256,7 +256,7 @@ void MultiSendConfigDialog::on_saveButton_clicked()
 		QValidatedLineEdit* vle = addressEntry->findChild<QValidatedLineEdit*>("addressLine");
 		if (CBitcoinAddress(vle->text().toStdString()).IsValid()) {
 			QSpinBox* psb = addressEntry->findChild<QSpinBox*>("percentageSpinBox");
-			int total += psb->value();
+			total += psb->value();
 			if (total > 100) {
 				QMessageBox::warning(this, tr("MultiSend"),
 					tr("The total percentage set is higher than 100"),
