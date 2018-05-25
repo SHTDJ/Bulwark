@@ -6,6 +6,7 @@
 #include "init.h"
 #include "walletmodel.h"
 #include "qvalidatedlineedit.h"
+#include "qtmaterialflatbutton.h"
 #include <QFrame>
 #include <QString>
 #include <QtWidgets/QHBoxLayout>
@@ -147,7 +148,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		percentageSpinBox->setSuffix("%");
 		addressLayout->addWidget(percentageSpinBox);
 
-		QPushButton* sendingAddressButton = new QPushButton(addressFrame);
+		QtMaterialFlatButton* sendingAddressButton = new QtMaterialFlatButton(addressFrame);
 		sendingAddressButton->setObjectName(QStringLiteral("sendingAddressButton"));
 		QIcon icon1;
 		icon1.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
