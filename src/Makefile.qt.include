@@ -171,7 +171,7 @@ BITCOIN_QT_H = \
   qt/peertablemodel.h \
   qt/platformstyle.h \
   qt/qtmaterialflatbutton.h \
-  qt/qtmaterflatbutton_internal.h \
+  qt/qtmaterialflatbutton_internal.h \
   qt/qtmaterialflatbutton_p.h \
   qt/qvalidatedlineedit.h \
   qt/qvaluecombobox.h \
@@ -285,7 +285,7 @@ BITCOIN_QT_CPP = \
   qt/peertablemodel.cpp \
   qt/platformstyle.cpp \
   qt/qtmaterialflatbutton.cpp \
-  qt/qtmaterflatbutton_internal.cpp \
+  qt/qtmaterialflatbutton_internal.cpp \
   qt/qvalidatedlineedit.cpp \
   qt/qvaluecombobox.cpp \
   qt/rpcconsole.cpp \
