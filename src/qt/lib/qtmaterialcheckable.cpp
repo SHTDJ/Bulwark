@@ -7,10 +7,10 @@
 #include <QEventTransition>
 #include <QColor>
 #include <QCoreApplication>
-#include "lib/qtmaterialrippleoverlay.h"
-#include "lib/qtmaterialripple.h"
-#include "lib/qtmaterialstyle.h"
-#include "lib/qtmaterialcheckable_internal.h"
+#include "qtmaterialrippleoverlay.h"
+#include "qtmaterialripple.h"
+#include "qtmaterialstyle.h"
+#include "qtmaterialcheckable_internal.h"
 
 /*!
  *  \class QtMaterialCheckablePrivate
