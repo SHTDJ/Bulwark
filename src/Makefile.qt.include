@@ -106,14 +106,14 @@ QT_MOC_CPP = \
   qt/moc_walletframe.cpp \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp \
-  qt/lib/moc_qtmaterialcheckable.cpp \
-  qt/lib/moc_qtmaterialcheckable_internal.cpp \
-  qt/lib/moc_qtmaterialoverlaywidget.cpp \
-  qt/lib/moc_qtmaterialripple.cpp \
-  qt/lib/moc_qtmaterialrippleoverlay.cpp \
-  qt/lib/moc_qtmaterialstatetransition.cpp \
-  qt/lib/moc_qtmaterialstyle.cpp \
-  qt/lib/moc_qtmaterialtheme.cpp
+  qt/moc_qtmaterialcheckable.cpp \
+  qt/moc_qtmaterialcheckable_internal.cpp \
+  qt/moc_qtmaterialoverlaywidget.cpp \
+  qt/moc_qtmaterialripple.cpp \
+  qt/moc_qtmaterialrippleoverlay.cpp \
+  qt/moc_qtmaterialstatetransition.cpp \
+  qt/moc_qtmaterialstyle.cpp \
+  qt/moc_qtmaterialtheme.cpp
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
