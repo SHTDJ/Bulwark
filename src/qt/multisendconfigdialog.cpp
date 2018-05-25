@@ -79,6 +79,7 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	percentageSpinBox->setObjectName(QStringLiteral("percentageSpinBox"));
 	percentageSpinBox->setDecimals(1);
 	percentageSpinBox->setRange(0.1,100);
+	percentageSpinBox->setSuffix("%%");
 	percentageSpinBox->setValue(entry.second);
 	addressLayout->addWidget(percentageSpinBox);
 
@@ -143,6 +144,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		percentageSpinBox->setObjectName(QStringLiteral("percentageSpinBox"));
 		percentageSpinBox->setDecimals(1);
 		percentageSpinBox->setRange(0.1, 100);
+		percentageSpinBox->setSuffix("%%");
 		addressLayout->addWidget(percentageSpinBox);
 
 		QPushButton* sendingAddressButton = new QPushButton(addressFrame);
