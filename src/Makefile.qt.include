@@ -85,7 +85,7 @@ QT_MOC_CPP = \
   qt/moc_peertablemodel.cpp \
   qt/moc_paymentserver.cpp \
   qt/moc_qtmaterialflatbutton.cpp \
-  qt/moc_qtmaterflatbutton_internal.cpp \
+  qt/moc_qtmaterialflatbutton_internal.cpp \
   qt/moc_qvalidatedlineedit.cpp \
   qt/moc_qvaluecombobox.cpp \
   qt/moc_receivecoinsdialog.cpp \
