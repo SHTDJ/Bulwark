@@ -24,11 +24,10 @@
 #include <QPainter>
 #include <QSettings>
 #include <QTimer>
-#include <QFontDatabase>
 
 #define DECORATION_SIZE 48
 #define ICON_OFFSET 16
-#define NUM_ITEMS 10
+#define NUM_ITEMS 15
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -118,6 +117,7 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
 {
     nDisplayUnit = 0; // just make sure it's not unitialized
     ui->setupUi(this);
+
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
