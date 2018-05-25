@@ -1,5 +1,5 @@
-#include "lib/qtmaterialcheckable.h"
-#include "lib/qtmaterialcheckable_p.h"
+#include "qtmaterialcheckable.h"
+#include "qtmaterialcheckable_p.h"
 #include <QPainter>
 #include <QEvent>
 #include <QStateMachine>
