@@ -31,7 +31,8 @@ QMenu::item:selected {
 	color: #333
 }
 QToolBar {
-	QFont font("Roboto", fontSize, QFont::Medium);
+	font-family: "Roboto";
+	QFont::Medium;
 	background-color: #0091ea;
 	border: 0px solid #333;
 	padding: 1;
