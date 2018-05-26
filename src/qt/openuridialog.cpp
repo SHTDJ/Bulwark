@@ -7,6 +7,7 @@
 
 #include "openuridialog.h"
 #include "ui_openuridialog.h"
+#include "qtmaterialflatbutton.h"
 
 #include "guiutil.h"
 #include "walletmodel.h"

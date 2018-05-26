@@ -92,7 +92,7 @@ QFrame &gt; QLabel{background-color:#f2f0f0;}</string>
        <item>
         <layout class="QHBoxLayout" name="addAddressLayout">
          <item>
-          <widget class="QPushButton" name="addAddressButton">
+          <widget class="QtMaterialFlatButton" name="addAddressButton">
            <property name="toolTip">
             <string>Add another address that could sign to verify a transaction from the multisig address.</string>
            </property>
@@ -180,7 +180,7 @@ QFrame &gt; QLabel{background-color:#f2f0f0;}</string>
        <item>
         <layout class="QHBoxLayout" name="addMultisigLayout">
          <item>
-          <widget class="QPushButton" name="addMultisigButton">
+          <widget class="QtMaterialFlatButton" name="addMultisigButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -260,7 +260,7 @@ Please be patient after clicking import.</string>
        <item>
         <layout class="QHBoxLayout" name="importLayout">
          <item>
-          <widget class="QPushButton" name="importAddressButton">
+          <widget class="QtMaterialFlatButton" name="importAddressButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -315,7 +315,7 @@ Please be patient after clicking import.</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButtonCoinControl">
+              <widget class="QtMaterialFlatButton" name="pushButtonCoinControl">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -363,7 +363,7 @@ Please be patient after clicking import.</string>
               </layout>
              </item>
              <item>
-              <widget class="QPushButton" name="addInputButton">
+              <widget class="QtMaterialFlatButton" name="addInputButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -435,7 +435,7 @@ Please be patient after clicking import.</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="addDestinationButton">
+              <widget class="QtMaterialFlatButton" name="addDestinationButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -513,7 +513,7 @@ Please be patient after clicking import.</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QPushButton" name="createButton">
+              <widget class="QtMaterialFlatButton" name="createButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -638,7 +638,7 @@ txScrollArea:{
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QPushButton" name="signButton">
+              <widget class="QtMaterialFlatButton" name="signButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -670,7 +670,7 @@ txScrollArea:{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="commitButton">
+              <widget class="QtMaterialFlatButton" name="commitButton">
                <property name="enabled">
                 <bool>false</bool>
                </property>
@@ -701,7 +701,7 @@ txScrollArea:{
              <item>
               <layout class="QHBoxLayout" name="addPrivKeyLayout">
                <item>
-                <widget class="QPushButton" name="addPrivKeyButton">
+                <widget class="QtMaterialFlatButton" name="addPrivKeyButton">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                    <horstretch>0</horstretch>

@@ -102,7 +102,7 @@
            <number>10</number>
           </property>
           <item>
-           <widget class="QPushButton" name="pushButtonCoinControl">
+           <widget class="QtMaterialFlatButton" name="pushButtonCoinControl">
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -799,14 +799,14 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="buttonChooseFee">
+               <widget class="QtMaterialFlatButton" name="buttonChooseFee">
                 <property name="text">
                  <string>Choose...</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="buttonMinimizeFee">
+               <widget class="QtMaterialFlatButton" name="buttonMinimizeFee">
                 <property name="toolTip">
                  <string>collapse fee-settings</string>
                 </property>
@@ -1301,7 +1301,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="sendButton">
+      <widget class="QtMaterialFlatButton" name="sendButton">
        <property name="minimumSize">
         <size>
          <width>150</width>
@@ -1327,7 +1327,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="clearButton">
+      <widget class="QtMaterialFlatButton" name="clearButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -1350,7 +1350,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="addButton">
+      <widget class="QtMaterialFlatButton" name="addButton">
        <property name="toolTip">
         <string>Send to multiple recipients at once</string>
        </property>

@@ -432,7 +432,7 @@
     <attribute name="title">
      <string>Buy</string>
     </attribute>
-    <widget class="QPushButton" name="BuyBWK">
+    <widget class="QtMaterialFlatButton" name="BuyBWK">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -566,7 +566,7 @@
       <string>Order Type</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Buy_Max_Amount">
+    <widget class="QtMaterialFlatButton" name="Buy_Max_Amount">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -1623,7 +1623,7 @@
       <string>Units</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Sell_Max_Amount">
+    <widget class="QtMaterialFlatButton" name="Sell_Max_Amount">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -1741,7 +1741,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QPushButton" name="SellBWKBTN">
+    <widget class="QtMaterialFlatButton" name="SellBWKBTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -2931,7 +2931,7 @@
       <string>Bittrex BWK Deposit Address:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="GenDepositBTN">
+    <widget class="QtMaterialFlatButton" name="GenDepositBTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -3071,7 +3071,7 @@
      <property name="styleSheet">
       <string notr="true"/>
      </property>
-     <widget class="QPushButton" name="btnUpdateMarketData">
+     <widget class="QtMaterialFlatButton" name="btnUpdateMarketData">
       <property name="geometry">
        <rect>
         <x>575</x>
@@ -3155,7 +3155,7 @@
        <string notr="true">border: 1px solid #61696c;margin-left:4px;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnConvertBulwark">
+     <widget class="QtMaterialFlatButton" name="btnConvertBulwark">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -3240,7 +3240,7 @@
       <pixmap>:/images/bittrex</pixmap>
      </property>
     </widget>
-    <widget class="QPushButton" name="UpdateKeys">
+    <widget class="QtMaterialFlatButton" name="UpdateKeys">
      <property name="geometry">
       <rect>
        <x>460</x>

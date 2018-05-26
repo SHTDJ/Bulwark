@@ -34,7 +34,7 @@
       <widget class="QValidatedLineEdit" name="uriEdit"/>
      </item>
      <item>
-      <widget class="QPushButton" name="selectFileButton">
+      <widget class="QtMaterialFlatButton" name="selectFileButton">
        <property name="toolTip">
         <string>Select payment request file</string>
        </property>

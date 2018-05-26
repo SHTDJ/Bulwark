@@ -638,7 +638,7 @@ https://www.transifex.com/bulwark-project/bulwark-project-translations</string>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_Buttons">
      <item>
-      <widget class="QPushButton" name="resetButton">
+      <widget class="QtMaterialFlatButton" name="resetButton">
        <property name="toolTip">
         <string>Reset all client options to default.</string>
        </property>
@@ -702,7 +702,7 @@ https://www.transifex.com/bulwark-project/bulwark-project-translations</string>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="okButton">
+      <widget class="QtMaterialFlatButton" name="okButton">
        <property name="text">
         <string>&amp;OK</string>
        </property>
@@ -715,7 +715,7 @@ https://www.transifex.com/bulwark-project/bulwark-project-translations</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancelButton">
+      <widget class="QtMaterialFlatButton" name="cancelButton">
        <property name="text">
         <string>&amp;Cancel</string>
        </property>

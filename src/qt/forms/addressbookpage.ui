@@ -89,7 +89,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="newAddress">
+      <widget class="QtMaterialFlatButton" name="newAddress">
        <property name="toolTip">
         <string>Create a new address</string>
        </property>
@@ -106,7 +106,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="copyAddress">
+      <widget class="QtMaterialFlatButton" name="copyAddress">
        <property name="toolTip">
         <string>Copy the currently selected address to the system clipboard</string>
        </property>
@@ -123,7 +123,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="deleteAddress">
+      <widget class="QtMaterialFlatButton" name="deleteAddress">
        <property name="toolTip">
         <string>Delete the currently selected address from the list</string>
        </property>
@@ -153,7 +153,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="exportButton">
+      <widget class="QtMaterialFlatButton" name="exportButton">
        <property name="toolTip">
         <string>Export the data in the current tab to a file</string>
        </property>
@@ -170,7 +170,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="closeButton">
+      <widget class="QtMaterialFlatButton" name="closeButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
          <horstretch>0</horstretch>

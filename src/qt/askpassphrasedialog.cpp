@@ -16,6 +16,7 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QPushButton>
+#include "qtmaterialflatbutton.h"
 
 AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel* model) : QDialog(parent),
                                                                                            ui(new Ui::AskPassphraseDialog),

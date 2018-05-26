@@ -53,7 +53,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_SM">
+          <widget class="QtMaterialFlatButton" name="addressBookButton_SM">
            <property name="toolTip">
             <string>Choose previously used address</string>
            </property>
@@ -73,7 +73,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pasteButton_SM">
+          <widget class="QtMaterialFlatButton" name="pasteButton_SM">
            <property name="toolTip">
             <string>Paste address from clipboard</string>
            </property>
@@ -129,7 +129,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="copySignatureButton_SM">
+          <widget class="QtMaterialFlatButton" name="copySignatureButton_SM">
            <property name="toolTip">
             <string>Copy the current signature to the system clipboard</string>
            </property>
@@ -150,7 +150,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3_SM">
          <item>
-          <widget class="QPushButton" name="signMessageButton_SM">
+          <widget class="QtMaterialFlatButton" name="signMessageButton_SM">
            <property name="toolTip">
             <string>Sign the message to prove you own this Bulwark address</string>
            </property>
@@ -167,7 +167,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton_SM">
+          <widget class="QtMaterialFlatButton" name="clearButton_SM">
            <property name="toolTip">
             <string>Reset all sign message fields</string>
            </property>
@@ -263,7 +263,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_VM">
+          <widget class="QtMaterialFlatButton" name="addressBookButton_VM">
            <property name="toolTip">
             <string>Choose previously used address</string>
            </property>
@@ -293,7 +293,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
          <item>
-          <widget class="QPushButton" name="verifyMessageButton_VM">
+          <widget class="QtMaterialFlatButton" name="verifyMessageButton_VM">
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified Bulwark address</string>
            </property>
@@ -310,7 +310,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton_VM">
+          <widget class="QtMaterialFlatButton" name="clearButton_VM">
            <property name="toolTip">
             <string>Reset all verify message fields</string>
            </property>
