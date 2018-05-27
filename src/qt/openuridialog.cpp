@@ -45,7 +45,7 @@ void OpenURIDialog::on_acceptButton_clicked()
 }
 
 void OpenURIDialog::on_cancelButton_clicked() {
-	delete this;
+	this->close();
 }
 
 void OpenURIDialog::on_selectFileButton_clicked()
