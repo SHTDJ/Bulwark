@@ -113,6 +113,8 @@ QT_MOC_CPP = \
   qt/moc_qtmaterialrippleoverlay.cpp \
   qt/moc_qtmaterialstatetransition.cpp \
   qt/moc_qtmaterialstyle.cpp \
+  qt/moc_qtmaterialtextfield.cpp \
+  qt/moc_qtmaterialtextfield_internal.cpp \
   qt/moc_qtmaterialtheme.cpp
 
 BITCOIN_MM = \
@@ -172,6 +174,9 @@ BITCOIN_QT_H = \
   qt/platformstyle.h \
   qt/qtmaterialflatbutton.h \
   qt/qtmaterialflatbutton_internal.h \
+  qt/qtmaterialtextfield.h \
+  qt/qtmaterialtextfield_internal.h \
+  qt/qtmaterialtextfield_p.h \
   qt/qtmaterialflatbutton_p.h \
   qt/qvalidatedlineedit.h \
   qt/qvaluecombobox.h \
@@ -208,6 +213,14 @@ BITCOIN_QT_H = \
   qt/qtmaterialstyle_p.h \
   qt/qtmaterialtheme.h \
   qt/qtmaterialtheme_p.h
+
+RES_FONTS = \
+  qt/res/fonts/Roboto-Black.ttf \
+  qt/res/fonts/Roboto-Bold.ttf \
+  qt/res/fonts/Roboto-Medium.ttf \
+  qt/res/fonts/Roboto-Regular.ttf \
+  qt/res/fonts/Roboto-Light.ttf \
+  qt/res/fonts/Roboto-Thin.ttf
 
 RES_ICONS = \
   qt/res/icons/history_m.png \
@@ -310,6 +323,8 @@ BITCOIN_QT_CPP = \
   qt/qtmaterialrippleoverlay.cpp \
   qt/qtmaterialstatetransition.cpp \
   qt/qtmaterialstyle.cpp \
+  qt/qtmaterialtextfield.cpp \
+  qt/qtmaterialtextfield_internal.cpp \
   qt/qtmaterialtheme.cpp
 
 if ENABLE_WALLET
@@ -379,7 +394,7 @@ qt_libbitcoinqt_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
 qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
-  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES)
+  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(RES_FONTS)
 
 nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)

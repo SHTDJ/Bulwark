@@ -40,11 +40,11 @@ void QtMaterialFlatButtonPrivate::init()
 
     rippleOverlay        = new QtMaterialRippleOverlay(q);
     stateMachine         = new QtMaterialFlatButtonStateMachine(q);
-    role                 = Material::Default;
+    role                 = Material::Primary;
     rippleStyle          = Material::PositionedRipple;
     iconPlacement        = Material::LeftIcon;
     overlayStyle         = Material::GrayOverlay;
-    bgMode               = Qt::TransparentMode;
+    bgMode               = Qt::OpaqueMode;
     textAlignment        = Qt::AlignHCenter;
     fixedRippleRadius    = 64;
     cornerRadius         = 3;
@@ -52,7 +52,7 @@ void QtMaterialFlatButtonPrivate::init()
     fontSize             = 10;        // 10.5;
     useThemeColors       = true;
     useFixedRippleRadius = false;
-    haloVisible          = true;
+    haloVisible          = false;
 
     q->setStyle(&QtMaterialStyle::instance());
     q->setAttribute(Qt::WA_Hover);

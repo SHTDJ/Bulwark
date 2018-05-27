@@ -7,11 +7,11 @@
 #include "walletmodel.h"
 #include "qvalidatedlineedit.h"
 #include "qtmaterialflatbutton.h"
+
 #include <QFrame>
 #include <QString>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
 #include <QDoubleSpinBox>
 #include <QClipboard>
 #include <QMessageBox>
@@ -84,7 +84,7 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	percentageSpinBox->setValue(entry.second);
 	addressLayout->addWidget(percentageSpinBox);
 
-	QPushButton* sendingAddressButton = new QPushButton(addressFrame);
+	QtMaterialFlatButton* sendingAddressButton = new QtMaterialFlatButton(addressFrame);
 	sendingAddressButton->setObjectName(QStringLiteral("sendingAddressButton"));
 	QIcon icon1;
 	icon1.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
@@ -93,7 +93,7 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	connect(sendingAddressButton, SIGNAL(clicked()), this, SLOT(selectSendingAddress()));
 	addressLayout->addWidget(sendingAddressButton);
 
-	QPushButton* pasteButton = new QPushButton(addressFrame);
+	QtMaterialFlatButton* pasteButton = new QtMaterialFlatButton(addressFrame);
 	pasteButton->setObjectName(QStringLiteral("pasteButton"));
 	QIcon icon2;
 	icon2.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
@@ -102,7 +102,7 @@ void MultiSendConfigDialog::loadEntry(std::pair<std::string, int> entry)
 	connect(pasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
 	addressLayout->addWidget(pasteButton);
 
-	QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+	QtMaterialFlatButton* addressDeleteButton = new QtMaterialFlatButton(addressFrame);
 	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
 	QIcon icon3;
 	icon3.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
@@ -157,7 +157,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		connect(sendingAddressButton, SIGNAL(clicked()), this, SLOT(selectSendingAddress()));
 		addressLayout->addWidget(sendingAddressButton);
 
-		QPushButton* pasteButton = new QPushButton(addressFrame);
+		QtMaterialFlatButton* pasteButton = new QtMaterialFlatButton(addressFrame);
 		pasteButton->setObjectName(QStringLiteral("pasteButton"));
 		QIcon icon2;
 		icon2.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
@@ -166,7 +166,7 @@ void MultiSendConfigDialog::on_addEntryButton_clicked()
 		connect(pasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
 		addressLayout->addWidget(pasteButton);			
 
-		QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+		QtMaterialFlatButton* addressDeleteButton = new QtMaterialFlatButton(addressFrame);
 		addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
 		QIcon icon3;
 		icon3.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);

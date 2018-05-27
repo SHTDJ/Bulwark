@@ -343,7 +343,7 @@
         </widget>
        </item>
        <item row="16" column="0">
-        <widget class="QPushButton" name="openDebugLogfileButton">
+        <widget class="QtMaterialFlatButton" name="openDebugLogfileButton">
          <property name="toolTip">
           <string>Open the BWK debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
@@ -393,7 +393,7 @@
           <widget class="QLineEdit" name="lineEdit"/>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton">
+          <widget class="QtMaterialFlatButton" name="clearButton">
            <property name="maximumSize">
             <size>
              <width>24</width>
@@ -474,7 +474,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="btnClearTrafficGraph">
+            <widget class="QtMaterialFlatButton" name="btnClearTrafficGraph">
              <property name="text">
               <string>&amp;Clear</string>
              </property>
@@ -1131,7 +1131,7 @@
         </spacer>
        </item>
        <item row="4" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_salvagewallet">
+        <widget class="QtMaterialFlatButton" name="btn_salvagewallet">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1161,7 +1161,7 @@
         </widget>
        </item>
        <item row="5" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_rescan">
+        <widget class="QtMaterialFlatButton" name="btn_rescan">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1191,7 +1191,7 @@
         </widget>
        </item>
        <item row="6" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_zapwallettxes1">
+        <widget class="QtMaterialFlatButton" name="btn_zapwallettxes1">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1221,7 +1221,7 @@
         </widget>
        </item>
        <item row="7" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_zapwallettxes2">
+        <widget class="QtMaterialFlatButton" name="btn_zapwallettxes2">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1251,7 +1251,7 @@
         </widget>
        </item>
        <item row="8" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_upgradewallet">
+        <widget class="QtMaterialFlatButton" name="btn_upgradewallet">
          <property name="minimumSize">
           <size>
            <width>100</width>
@@ -1281,7 +1281,7 @@
         </widget>
        </item>
        <item row="9" column="0" colspan="2">
-        <widget class="QPushButton" name="btn_reindex">
+        <widget class="QtMaterialFlatButton" name="btn_reindex">
          <property name="minimumSize">
           <size>
            <width>100</width>

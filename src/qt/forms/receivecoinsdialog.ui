@@ -130,7 +130,7 @@
         <item row="8" column="2">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QPushButton" name="receiveButton">
+           <widget class="QtMaterialFlatButton" name="receiveButton">
             <property name="minimumSize">
              <size>
               <width>150</width>
@@ -147,7 +147,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="clearButton">
+           <widget class="QtMaterialFlatButton" name="clearButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -290,7 +290,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="showRequestButton">
+         <widget class="QtMaterialFlatButton" name="showRequestButton">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -310,7 +310,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="removeRequestButton">
+         <widget class="QtMaterialFlatButton" name="removeRequestButton">
           <property name="enabled">
            <bool>false</bool>
           </property>
