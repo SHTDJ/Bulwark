@@ -199,7 +199,7 @@ void AskPassphraseDialog::textChanged()
         acceptable = !ui->passEdit1->text().isEmpty() && !ui->passEdit2->text().isEmpty() && !ui->passEdit3->text().isEmpty();
         break;
     }
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(acceptable);
+    ui->acceptButton->setEnabled(true);
 }
 
 bool AskPassphraseDialog::event(QEvent* event)
