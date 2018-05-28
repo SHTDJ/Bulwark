@@ -400,8 +400,8 @@ Please be patient after clicking import.</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>745</width>
-                <height>79</height>
+                <width>98</width>
+                <height>28</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -485,8 +485,8 @@ Please be patient after clicking import.</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>745</width>
-                <height>79</height>
+                <width>98</width>
+                <height>28</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -712,7 +712,7 @@ txScrollArea:{
                   <string>Add private keys to sign the transaction with</string>
                  </property>
                  <property name="text" stdset="0">
-                  <string>Add Private &amp;Key</string>
+                  <string>Add Private Key</string>
                  </property>
                  <property name="icon" stdset="0">
                   <iconset resource="../bulwark.qrc">
