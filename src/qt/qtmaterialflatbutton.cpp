@@ -60,6 +60,7 @@ void QtMaterialFlatButtonPrivate::init()
 
     QFont font("Source Sans Pro", fontSize, QFont::Medium);
     font.setCapitalization(QFont::AllUppercase);
+	font.setKerning(false);
     q->setFont(font);
 
     QPainterPath path;
