@@ -177,7 +177,7 @@ void AskPassphraseDialog::on_acceptButton_clicked()
     }
 }
 
-void on_cancelButton_clicked()
+void AskPassphraseDialog::on_cancelButton_clicked()
 {
 	this->close();
 }
