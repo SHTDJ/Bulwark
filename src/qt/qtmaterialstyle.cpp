@@ -19,10 +19,6 @@ QtMaterialStylePrivate::~QtMaterialStylePrivate()
 void QtMaterialStylePrivate::init()
 {
     Q_Q(QtMaterialStyle);
-
-    QFontDatabase::addApplicationFont(":/SourceSansPro-Regular");
-	QFontDatabase::addApplicationFont(":/SourceSansPro-Bold");
-
     q->setTheme(new QtMaterialTheme);
 }
 
