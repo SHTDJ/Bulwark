@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>638</width>
-    <height>136</height>
+    <height>164</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -143,23 +143,23 @@
      </item>
      <item>
       <widget class="QtMaterialFlatButton" name="acceptButton" native="true">
-	  <property name="text" stdset="0">
-             <string>OK</string>
-            </property>
-      <property name="autoDefault" stdset="0">
-             <bool>false</bool>
-      </property>
-		</widget>	
+       <property name="text" stdset="0">
+        <string>OK</string>
+       </property>
+       <property name="autoDefault" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QtMaterialFlatButton" name="cancelButton" native="true">
-	  <property name="text" stdset="0">
-             <string>Cancel</string>
-            </property>
-      <property name="autoDefault" stdset="0">
-             <bool>false</bool>
-      </property>
-		</widget>
+       <property name="text" stdset="0">
+        <string>Cancel</string>
+       </property>
+       <property name="autoDefault" stdset="0">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
