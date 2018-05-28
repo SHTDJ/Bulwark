@@ -20,9 +20,8 @@ void QtMaterialStylePrivate::init()
 {
     Q_Q(QtMaterialStyle);
 
-    QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
-    QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
-    QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
+    QFontDatabase::addApplicationFont(":/SourceSansPro-Regular");
+	QFontDatabase::addApplicationFont(":/SourceSansPro-Bold");
 
     q->setTheme(new QtMaterialTheme);
 }
