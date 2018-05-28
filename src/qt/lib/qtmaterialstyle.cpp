@@ -1,6 +1,6 @@
-#include "qtmaterialstyle.h"
+#include "lib/qtmaterialstyle.h"
 #include <QFontDatabase>
-#include "qtmaterialtheme.h"
+#include "lib/qtmaterialtheme.h"
 
 /*!
  *  \class QtMaterialStylePrivate
@@ -20,8 +20,9 @@ void QtMaterialStylePrivate::init()
 {
     Q_Q(QtMaterialStyle);
 
-    QFontDatabase::addApplicationFont(":/SourceSansPro-Regular");
-	QFontDatabase::addApplicationFont(":/SourceSansPro-Bold");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_regular");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_medium");
+    QFontDatabase::addApplicationFont(":/fonts/roboto_bold");
 
     q->setTheme(new QtMaterialTheme);
 }
