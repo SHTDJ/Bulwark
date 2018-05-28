@@ -43,6 +43,7 @@
 #include <QDesktopWidget>
 #include <QDragEnterEvent>
 #include <QIcon>
+#include <QFontDatabase>
 #include <QListWidget>
 #include <QMenuBar>
 #include <QMessageBox>
@@ -116,6 +117,10 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+	QFontDatabase::addApplicationFont(":/SourceSansPro-Regular");
+	QFontDatabase::addApplicationFont(":/SourceSansPro-Bold");
+	QFont font("Source Sans Pro", 10, QFont::Medium);
+	QApplication::setFont(font);
 
     QString windowTitle = tr("Bulwark Core") + " - ";
 #ifdef ENABLE_WALLET
