@@ -90,7 +90,7 @@ AskPassphraseDialog::~AskPassphraseDialog()
     delete ui;
 }
 
-void AskPassphraseDialog::accept()
+void AskPassphraseDialog::on_acceptButton_clicked()
 {
     SecureString oldpass, newpass1, newpass2;
     if (!model)
@@ -175,6 +175,11 @@ void AskPassphraseDialog::accept()
         }
         break;
     }
+}
+
+void on_cancelButton_clicked()
+{
+	this->close();
 }
 
 void AskPassphraseDialog::textChanged()
