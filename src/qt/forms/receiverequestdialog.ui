@@ -70,31 +70,31 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QtMaterialFlatButton" name="btnCopyURI">
-       <property name="text">
-        <string>Copy &amp;URI</string>
+      <widget class="QtMaterialFlatButton" name="btnCopyURI" native="true">
+       <property name="text" stdset="0">
+        <string>Copy URI</string>
        </property>
-       <property name="autoDefault">
+       <property name="autoDefault" stdset="0">
         <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QtMaterialFlatButton" name="btnCopyAddress">
-       <property name="text">
-        <string>Copy &amp;Address</string>
+      <widget class="QtMaterialFlatButton" name="btnCopyAddress" native="true">
+       <property name="text" stdset="0">
+        <string>Copy Address</string>
        </property>
-       <property name="autoDefault">
+       <property name="autoDefault" stdset="0">
         <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QtMaterialFlatButton" name="btnSaveAs">
-       <property name="text">
-        <string>&amp;Save Image...</string>
+      <widget class="QtMaterialFlatButton" name="btnSaveAs" native="true">
+       <property name="text" stdset="0">
+        <string>Save Image...</string>
        </property>
-       <property name="autoDefault">
+       <property name="autoDefault" stdset="0">
         <bool>false</bool>
        </property>
       </widget>
@@ -128,6 +128,11 @@
    <class>QRImageWidget</class>
    <extends>QLabel</extends>
    <header>receiverequestdialog.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QtMaterialFlatButton</class>
+   <extends>QWidget</extends>
+   <header>qtmaterialflatbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
