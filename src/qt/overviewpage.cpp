@@ -155,7 +155,7 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
-	QFont font("Source Sans Pro", 12, QFont::Bold);
+	QFont font("Source Sans Pro", 15, QFont::Bold);
 	ui->BalanceTitle->setFont(font);
 }
 
