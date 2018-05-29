@@ -120,15 +120,21 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 
 	QIcon icon1;
 	icon1.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
-	QtMaterialIconButton* addressConfigureButton = new QtMaterialIconButton(icon1,addressFrame);
-	addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));	
+	QtMaterialFlatButton* addressConfigureButton = new QtMaterialFlatButton(addressFrame);
+	addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));
+	addressConfigureButton->setIcon(icon1);
+	addressConfigureButton->setText(QStringLiteral("Configure"));
+	addressConfigureButton->setAutoDefault(false);
 	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(configureMultiSend()));
 	addressLayout->addWidget(addressConfigureButton);
 
 	QIcon icon2;
 	icon2.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
-	QtMaterialIconButton* addressDeleteButton = new QtMaterialIconButton(icon2,addressFrame);
+	QtMaterialFlatButton* addressDeleteButton = new QtMaterialFlatButton(addressFrame);	
 	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
+	addressDeleteButton->setIcon(icon2);
+	addressConfigureButton->setText(QStringLiteral("Delete"));
+	addressDeleteButton->setAutoDefault(false);
 	connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
 	addressLayout->addWidget(addressDeleteButton);
 
