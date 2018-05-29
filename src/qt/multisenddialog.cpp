@@ -122,7 +122,6 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	icon1.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
 	QtMaterialIconButton* addressConfigureButton = new QtMaterialIconButton(icon1,addressFrame);
 	addressConfigureButton->setObjectName(QStringLiteral("addressConfigureButton"));	
-	addressConfigureButton->setAutoDefault(false);
 	connect(addressConfigureButton, SIGNAL(clicked()), this, SLOT(configureMultiSend()));
 	addressLayout->addWidget(addressConfigureButton);
 
@@ -130,7 +129,6 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	icon2.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
 	QtMaterialIconButton* addressDeleteButton = new QtMaterialIconButton(icon2,addressFrame);
 	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
-	addressDeleteButton->setAutoDefault(false);
 	connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
 	addressLayout->addWidget(addressDeleteButton);
 
