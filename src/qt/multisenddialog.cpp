@@ -133,7 +133,7 @@ void MultiSendDialog::addAddress(std::string address, bool onLoad) {
 	QtMaterialFlatButton* addressDeleteButton = new QtMaterialFlatButton(addressFrame);	
 	addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
 	addressDeleteButton->setIcon(icon2);
-	addressConfigureButton->setText(QStringLiteral("Delete"));
+	addressDeleteButton->setText(QStringLiteral("Delete"));
 	addressDeleteButton->setAutoDefault(false);
 	connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
 	addressLayout->addWidget(addressDeleteButton);
