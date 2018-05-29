@@ -113,11 +113,11 @@
       </spacer>
      </item>
      <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
-       </property>
-      </widget>
+      <widget class="QtMaterialFlatButton" name="closeButton" native="true">
+	  <property name="text" stdset="0">
+         <string>Close</string>
+        </property>
+		</widget>
      </item>
     </layout>
    </item>
@@ -136,38 +136,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>ReceiveRequestDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>452</x>
-     <y>573</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>243</x>
-     <y>298</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>ReceiveRequestDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>452</x>
-     <y>573</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>243</x>
-     <y>298</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
