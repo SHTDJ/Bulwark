@@ -119,7 +119,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 	QFontDatabase::addApplicationFont(":/Roboto-Medium");
 	QFontDatabase::addApplicationFont(":/Roboto-Bold");
-	QFont font("Roboto",QFont::Medium);
+	QFont font("Roboto",10,QFont::Medium);
 	QApplication::setFont(font);
 
     QString windowTitle = tr("Bulwark Core") + " - ";
