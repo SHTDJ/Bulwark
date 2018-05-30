@@ -918,14 +918,14 @@ QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:checked {
 	color: #fff
 }
 QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:selected {
-	background-image: url(':/images/qtreeview_selected');
+	background-image: url(':/images/downArrow_small');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #f7f7f7;
 	color: #333
 }
 QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:checked {
-	background-image: url(':/images/qtreeview_selected');
+	background-image: url(':/images/downArrow_small');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #f7f7f7;
