@@ -929,7 +929,7 @@ QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:checked {
 	background-color: #f7f7f7;
 	color: #333
 }
-QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:closed:has-children:has-siblings {
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:open:has-children:has-siblings {
 border-image: none;
 image: url(':/images/downArrow_small');
 }
