@@ -346,7 +346,7 @@ QTableView::item {
 	font-size: 12px
 }
 QTableView::item:selected {
-	background-color: #0091ea;
+	background-color: #ddd;
 	color: #fff
 }
 QTableWidget {
@@ -910,7 +910,7 @@ QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget {
 	border: 1px solid #333
 }
 QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item {} QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:selected {
-	background-color: #0091ea;
+	background-color: #ddd;
 	color: #fff
 }
 QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:checked {
