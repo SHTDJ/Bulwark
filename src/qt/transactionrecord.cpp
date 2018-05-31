@@ -34,7 +34,6 @@ bool TransactionRecord::showTransaction(const CWalletTx& wtx)
 QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* wallet, const CWalletTx& wtx)
 {
     QList<TransactionRecord> parts;
-	parts->setFont(QFont("Roboto",12,QFont::Bold));
     int64_t nTime = wtx.GetTxTime();
     CAmount nCredit = wtx.GetCredit(ISMINE_ALL);
     CAmount nDebit = wtx.GetDebit(ISMINE_ALL);
