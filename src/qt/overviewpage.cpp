@@ -25,7 +25,6 @@
 #include <QPainter>
 #include <QSettings>
 #include <QTimer>
-#include <QFontDatabase>
 
 #define DECORATION_SIZE 48
 #define ICON_OFFSET 16
