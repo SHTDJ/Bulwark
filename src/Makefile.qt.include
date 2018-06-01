@@ -108,7 +108,6 @@ QT_MOC_CPP = \
   qt/moc_walletview.cpp \
   qt/moc_qtmaterialcheckable.cpp \
   qt/moc_qtmaterialcheckable_internal.cpp \
-  qt/moc_qtmaterialiconbutton.cpp \
   qt/moc_qtmaterialoverlaywidget.cpp \
   qt/moc_qtmaterialripple.cpp \
   qt/moc_qtmaterialrippleoverlay.cpp \
@@ -205,8 +204,6 @@ BITCOIN_QT_H = \
   qt/qtmaterialcheckable.h \
   qt/qtmaterialcheckable_internal.h \
   qt/qtmaterialcheckable_p.h \
-  qt/qtmaterialiconbutton.h \
-  qt/qtmaterialiconbutton_p.h \
   qt/qtmaterialoverlaywidget.h \
   qt/qtmaterialripple.h \
   qt/qtmaterialrippleoverlay.h \
@@ -317,7 +314,6 @@ BITCOIN_QT_CPP = \
   qt/winshutdownmonitor.cpp \
   qt/qtmaterialcheckable.cpp \
   qt/qtmaterialcheckable_internal.cpp \
-  qt/qtmaterialiconbutton.cpp \
   qt/qtmaterialoverlaywidget.cpp \
   qt/qtmaterialripple.cpp \
   qt/qtmaterialrippleoverlay.cpp \
