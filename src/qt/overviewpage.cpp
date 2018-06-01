@@ -86,7 +86,9 @@ public:
         if (!confirmed) {
             amountText = QString("[") + amountText + QString("]");
         }
+		painter->setFont(QFont("Roboto", 10, QFont::Bold));
         painter->drawText(amountRect, Qt::AlignRight | Qt::AlignVCenter, amountText);
+		painter - setFont(QFont("Roboto", 10, QFont::Bold));
 
         painter->setPen(COLOR_BLACK);
         painter->drawText(amountRect, Qt::AlignLeft | Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
