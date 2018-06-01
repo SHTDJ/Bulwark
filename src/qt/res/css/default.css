@@ -673,6 +673,7 @@ QWidget .QFrame#frame_Balances .QLabel#labelBalance {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchAvailable {
 	font-size: 25px;
+	font-weight: 400;
 }
 QWidget .QFrame#frame_Balances .QLabel#labelPendingText {
 	font-size: 15px
@@ -683,6 +684,7 @@ QWidget .QFrame#frame_Balances .QLabel#labelUnconfirmed {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchPending {
 	font-size: 25px;
+	font-weight: 400;
 }
 QWidget .QFrame#frame_Balances .QLabel#labelImmatureText {
 	font-size: 15px
@@ -693,6 +695,7 @@ QWidget .QFrame#frame_Balances .QLabel#labelImmature {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchImmature {
 	font-size: 25px;
+	font-weight: 400;
 }
 QWidget .QFrame#frame_Balances .QLabel#labelTotalText {
 	font-size: 15px
@@ -703,6 +706,7 @@ QWidget .QFrame#frame_Balances .QLabel#labelTotal {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchTotal {
 	font-size: 25px;
+	font-weight: 400;
 }
 QWidget .QFrame#frame_CombinedBalances .QLabel#BalanceTitlez {
 	min-width: 160px;
