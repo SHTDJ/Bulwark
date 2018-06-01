@@ -640,7 +640,6 @@ QWidget .QFrame#frame_RecentTransactions {
 	background-color: #ffffff
 }
 QWidget .QFrame#frame_Balances .QLabel#BalanceTitle {
-	min-width: 160px;
 	background-color: transparent;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -661,11 +660,9 @@ QWidget .QFrame#frameObfuscation .QLabel#labelObfuscationSyncStatus {
 }
 QWidget .QFrame#frame_Balances .QLabel#labelSpendable {
 	font-size: 12px;
-	margin-left: 18px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelWatchonly {
 	font-size: 12px;
-	margin-left: 16px
 }
 QWidget .QFrame#frame_Balances .QLabel#labelBalanceText {
 	font-size: 15px
