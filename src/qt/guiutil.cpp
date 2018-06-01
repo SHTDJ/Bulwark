@@ -96,9 +96,9 @@ QFont bitcoinAddressFont()
 {
     QFont font("Roboto",10,QFont::Medium);
 #if QT_VERSION >= 0x040800
-    font.setStyleHint("Roboto",10,QFont::Medium);
+    font.setStyleHint(QFont::Monospace);
 #else
-    font.setStyleHint("Roboto",10,QFont::Medium);
+    font.setStyleHint(QFont::TypeWriter);
 #endif
     return font;
 }
