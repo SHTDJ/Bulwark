@@ -382,7 +382,7 @@ void BitcoinApplication::createOptionsModel()
 
 void BitcoinApplication::createWindow(const NetworkStyle* networkStyle)
 {
-	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
     window = new BitcoinGUI(networkStyle, 0);
 
     pollShutdownTimer = new QTimer(window);
