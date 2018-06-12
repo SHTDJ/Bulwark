@@ -228,7 +228,7 @@ void OverviewPage::on_toggleStaking_clicked()
 			QMessageBox::NoButton);
 		QPixmap joe(":/icons/joe");
 
-		mb.setIcon(QMessageBox::setIconPixmap(joe));
+		mb.setIconPixmap(joe);
 	}
 }
 
