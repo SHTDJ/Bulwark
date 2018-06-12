@@ -220,9 +220,15 @@ void OverviewPage::on_toggleStaking_clicked()
 		WalletModel::UnlockContext ctx(walletModel->requestUnlock(false));
 	}
 	else {
-		QMessageBox::information(this, tr("Staking"),
-			tr("Staking is already enabled"),
-			QMessageBox::Ok, QMessageBox::Ok);
+		QMessageBox mb("No u",
+			"Staking is already enabled you doofus",
+			QMessageBox::NoIcon,
+			QMessageBox::Yes | QMessageBox::Default,
+			QMessageBox::NoButton,
+			QMessageBox::NoButton);
+		QPixmap joe(":/icons/joe");
+
+		mb.setIcon(QMessageBox::setIconPixmap(joe));
 	}
 }
 

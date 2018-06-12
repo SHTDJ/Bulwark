@@ -80,15 +80,15 @@ before_deploy:
 - cd ..
 - git config --local user.name "SHTDJ"
 - git config --local user.email "niklas.nieberding@yahoo.de"
-- git tag "bulwark-1.3.0.0-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-- tar -zvcf bulwark-1.3.0.0-$HOST.tar.gz -C $OUTDIR bin/
+- git tag "bulwark-999.3.0.0-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- tar -zvcf bulwark-999.3.0.0-$HOST.tar.gz -C $OUTDIR bin/
 - echo `pwd`
 deploy:
   provider: releases
   file_glob: true
   api_key:
     secure: ZT+FkN9kPLyLtn2rr6jHFVoaKaWc+D7NZoA3wKvbLG2HcVrljwKzEredVDuqUckAS8m6L0DTGuzX+7wPAvSqG4gTsTrLnH0H5dK4xafePxCd2tFpSv6KYyq/oWqiixEMzD1qEKhnpn/Tmp/vGx5V971TCeKpI62mWoLZkgU/nazYh+mjgKesms3BREz+lO3+x/6b7carcjKOiM4Mq5/cwf1itlryFSqHHvI/off7/LYR5vM7WrGaCxnCdsXFGHzSa+47wSyE9aEgEVo0peXCmRuaSe9WJ5I+UwMqlAVJLPtraYMIR1bCGMDTuCfBL3IJ+jdZPNJ/47YcT0wHq2dkacYCunfBWffFdAzoOMyFO9uZ2wLmuAXCTCH+yAflVnmmQD4oz+CcIke2cZEKtPwNi7NkvqUr8x6NgnF6CLhfJKEe2gz6Vrg8Q82PZML/p33OJuZ0kmrNdL7cbC5iXe0vEzwdv32dkTsSod8oqwq0GqPaV6UwUj1BF4jFd/EHyNhzyxRRPKieEyNkvjBDgk5Li3MIHbrkOO66khO8kFNrOPPbcubIt/wuYbuGF2Luu7jO5LVSKWuyKlrbpaIDTG2Qvi8KLmhKBozmA5N9czVtetde1R7p+H7sqdaDAkno5FrkFvZ1024iAUe4pXlv8L/KB0oFIfHVd7e1fytYMhXr2xU=
-  file: bulwark-1.3.0.0-*
+  file: bulwark-999.3.0.0-*
   skip_cleanup: true
   on:
     repo: SHTDJ/Bulwark
