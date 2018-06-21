@@ -221,7 +221,6 @@ RES_FONTS = \
 RES_ICONS = \
   qt/res/icons/history_m.png \
   qt/res/icons/send_m.png \
-  qt/res/icons/joe.png \
   qt/res/icons/receive_m.png \
   qt/res/icons/masternodes_m.png \
   qt/res/icons/overview_m.png \

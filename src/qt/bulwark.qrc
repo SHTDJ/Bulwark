@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/icons">
         <file alias="history_m">res/icons/history_m.png</file>
-		<file alias="joe">res/icons/joe.png</file>
         <file alias="send_m">res/icons/send_m.png</file>
         <file alias="receiving_addresses_m">res/icons/receive_m.png</file>
         <file alias="masternodes_m">res/icons/masternodes_m.png</file>
