@@ -229,7 +229,6 @@ void OverviewPage::on_toggleStaking_clicked()
 		QPixmap joe(":/icons/joe");
 
 		mb.setIconPixmap(joe);
-		mb.exec();
 	}
 }
 
