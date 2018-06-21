@@ -26,7 +26,7 @@ bool TransactionRecord::showTransaction(const CWalletTx& wtx)
         }
     }
 	else {
-		return (wtx.GetDepthInMainChain() < 0);
+		return !(wtx.GetDepthInMainChain() < 0);
 	}
 }
 
