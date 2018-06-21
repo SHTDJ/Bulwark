@@ -13,7 +13,6 @@
 class AddressTableModel;
 class OptionsModel;
 class PeerTableModel;
-class BanTableModel;
 class TransactionTableModel;
 
 class CWallet;
