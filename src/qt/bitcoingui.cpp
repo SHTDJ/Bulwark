@@ -1135,8 +1135,6 @@ void BitcoinGUI::setStakingStatus()
         fMultiSend = pwalletMain->isMultiSendEnabled();
 	labelStakingIcon->show();
 	QString tooltip = "";
-	tooltip += "validtime: ";
-	tooltip += (pwalletMain->chainActive.tip()->nTime > 1471482000) ? "true\n" : "false\n";
 	tooltip += "walletunlocked: ";
 	tooltip += (!pwalletMain->IsLocked()) ? "true\n" : "false\n";
 	tooltip += "mintablecoins: ";
@@ -1144,7 +1142,7 @@ void BitcoinGUI::setStakingStatus()
 	tooltip += "enoughCoins: ";
 	tooltip += (nReserveBalance <= pwalletMain->GetBalance()) ? "true\n" : "false\n";
 	tooltip += "mnsync: ";
-	tooltip += (masternodesync.IsSynced()) ? "true\n" : "false\n";
+	tooltip += (masternodeSync.IsSynced()) ? "true\n" : "false\n";
 	tooltip += "staking status: ";
 	if (nLastCoinStakeSearchInterval) {
 		tooltip += "true\n";
