@@ -112,7 +112,7 @@ void OptionsModel::Init()
         addOverriddenOption("-spendzeroconfchange");
 	if (!settings.contains("fShowOrphans"))
 		settings.setValue("fShowOrphans", false);
-	fShowOrphans = settings.value("fShowOrphans", false).toBool();
+	fShowOrphans = settings.value("fShowOrphans").toBool();
 #endif
 
     // Network
