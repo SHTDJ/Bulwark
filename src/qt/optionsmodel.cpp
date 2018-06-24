@@ -213,7 +213,7 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
         case ShowMasternodesTab:
             return settings.value("fShowMasternodesTab");
 		case ShowOrphans:
-			return settings.value("ShowOrphans");
+			return settings.value("fShowOrphans");
 #endif
         case DisplayUnit:
             return nDisplayUnit;
