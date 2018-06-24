@@ -212,8 +212,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("bSpendZeroConfChange");
         case ShowMasternodesTab:
             return settings.value("fShowMasternodesTab");
-		case fShowOrphans:
-			return settings.value(f"ShowOrphans");
+		case ShowOrphans:
+			return settings.value("ShowOrphans");
 #endif
         case DisplayUnit:
             return nDisplayUnit;
@@ -303,7 +303,7 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
                 setRestartRequired(true);
             }
             break;
-		case fShowOrphans:
+		case ShowOrphans:
 			if (settings.value("fShowOrphans") != value) {
 				settings.setValue("fShowOrphans", value);
 				setRestartRequired(true);

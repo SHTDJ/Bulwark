@@ -43,7 +43,7 @@ public:
         ThreadsScriptVerif,  // int
         DatabaseCache,       // int
         SpendZeroConfChange, // bool
-		fShowOrphans,         // bool
+		ShowOrphans,         // bool
         ObfuscationRounds,   // int
         AnonymizeBulwarkAmount, //int
         ShowMasternodesTab,  // bool
