@@ -1135,25 +1135,40 @@ void BitcoinGUI::setStakingStatus()
         fMultiSend = pwalletMain->isMultiSendEnabled();
 	labelStakingIcon->show();
 	QString tooltip = "";
-	tooltip += "walletunlocked: ";
-	tooltip += (!pwalletMain->IsLocked()) ? "true\n" : "false\n";
-	tooltip += "mintablecoins: ";
-	tooltip += (!pwalletMain->MintableCoins()) ? "true\n" : "false\n";
-	tooltip += "enoughCoins: ";
-	tooltip += (nReserveBalance <= pwalletMain->GetBalance()) ? "true\n" : "false\n";
-	tooltip += "mnsync: ";
-	tooltip += (masternodeSync.IsSynced()) ? "true\n" : "false\n";
-	tooltip += "staking status: ";
+	tooltip.append("walletunlocked: ");
+	if (!pwalletMain->IsLocked())
+		tooltip.append("true\n");
+	else
+		tooltip.append("false\n");
+	tooltip.append("mintablecoins: ");
+	if (!pwalletMain->MintableCoins())
+		tooltip.append("true\n");
+	else
+		tooltip.append("false\n");
+	tooltip.append("enoughCoins: ");
+	if (nReserveBalance <= pwalletMain->GetBalance())
+		tooltip.append("true\n");
+	else
+		tooltip.append("false\n");
+	tooltip.append("mnsync: ");
+	if (masternodeSync.IsSynced())
+		tooltip.append("true\n");
+	else
+		tooltip.append("false\n");
+	tooltip.append("staking status: ");
 	if (nLastCoinStakeSearchInterval) {
-		tooltip += "true\n";
+		tooltip.append("true\n");
 		labelStakingIcon->setPixmap(QIcon(":/icons/staking_active").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 	}
 	else {
-		tooltip += "false\n";
+		tooltip.append("false\n");
 		labelStakingIcon->setPixmap(QIcon(":/icons/staking_inactive").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 	}	
-	tooltip += "multisend: ";
-	tooltip += fMultiSend ? "true" : "false";
+	tooltip.append("multisend: ");
+	if (fMultiSend)
+		tooltip.append("true\n");
+	else
+		tooltip.append("false\n");
 	labelStakingIcon->setToolTip(tooltip);
 }
 
