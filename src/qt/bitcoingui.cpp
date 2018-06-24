@@ -1131,45 +1131,46 @@ bool BitcoinGUI::eventFilter(QObject* object, QEvent* event)
 
 void BitcoinGUI::setStakingStatus()
 {
-    if (pwalletMain)
-        fMultiSend = pwalletMain->isMultiSendEnabled();
-	labelStakingIcon->show();
-	QString tooltip = "";
-	tooltip.append("walletunlocked: ");
-	if (!pwalletMain->IsLocked())
-		tooltip.append("true\n");
-	else
-		tooltip.append("false\n");
-	tooltip.append("mintablecoins: ");
-	if (!pwalletMain->MintableCoins())
-		tooltip.append("true\n");
-	else
-		tooltip.append("false\n");
-	tooltip.append("enoughCoins: ");
-	if (nReserveBalance <= pwalletMain->GetBalance())
-		tooltip.append("true\n");
-	else
-		tooltip.append("false\n");
-	tooltip.append("mnsync: ");
-	if (masternodeSync.IsSynced())
-		tooltip.append("true\n");
-	else
-		tooltip.append("false\n");
-	tooltip.append("staking status: ");
-	if (nLastCoinStakeSearchInterval) {
-		tooltip.append("true\n");
-		labelStakingIcon->setPixmap(QIcon(":/icons/staking_active").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+	if (pwalletMain) {
+		fMultiSend = pwalletMain->isMultiSendEnabled();
+		labelStakingIcon->show();
+		QString tooltip = "";
+		tooltip.append("walletunlocked: ");
+		if (!pwalletMain->IsLocked())
+			tooltip.append("true\n");
+		else
+			tooltip.append("false\n");
+		tooltip.append("mintablecoins: ");
+		if (!pwalletMain->MintableCoins())
+			tooltip.append("true\n");
+		else
+			tooltip.append("false\n");
+		tooltip.append("enoughCoins: ");
+		if (nReserveBalance <= pwalletMain->GetBalance())
+			tooltip.append("true\n");
+		else
+			tooltip.append("false\n");
+		tooltip.append("mnsync: ");
+		if (masternodeSync.IsSynced())
+			tooltip.append("true\n");
+		else
+			tooltip.append("false\n");
+		tooltip.append("staking status: ");
+		if (nLastCoinStakeSearchInterval) {
+			tooltip.append("true\n");
+			labelStakingIcon->setPixmap(QIcon(":/icons/staking_active").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+		}
+		else {
+			tooltip.append("false\n");
+			labelStakingIcon->setPixmap(QIcon(":/icons/staking_inactive").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+		}
+		tooltip.append("multisend: ");
+		if (fMultiSend)
+			tooltip.append("true\n");
+		else
+			tooltip.append("false\n");
+		labelStakingIcon->setToolTip(tooltip);
 	}
-	else {
-		tooltip.append("false\n");
-		labelStakingIcon->setPixmap(QIcon(":/icons/staking_inactive").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
-	}	
-	tooltip.append("multisend: ");
-	if (fMultiSend)
-		tooltip.append("true\n");
-	else
-		tooltip.append("false\n");
-	labelStakingIcon->setToolTip(tooltip);
 }
 
 #ifdef ENABLE_WALLET
