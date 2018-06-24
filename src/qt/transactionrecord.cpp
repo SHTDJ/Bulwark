@@ -12,7 +12,7 @@
 #include "swifttx.h"
 #include "timedata.h"
 #include "wallet.h"
-
+#include <QSettings>
 #include <stdint.h>
 
 /* Return positive answer if transaction should be shown in list.
@@ -26,7 +26,8 @@ bool TransactionRecord::showTransaction(const CWalletTx& wtx)
         }
     }
 	else {
-		return !(wtx.GetDepthInMainChain() < 0);
+		QSettings settings;
+		return !(settings.value("fShowOrphans").toBool() && wtx.GetDepthInMainChain() < 0);
 	}
 }
 

@@ -110,6 +110,9 @@ void OptionsModel::Init()
         settings.setValue("bSpendZeroConfChange", true);
     if (!SoftSetBoolArg("-spendzeroconfchange", settings.value("bSpendZeroConfChange").toBool()))
         addOverriddenOption("-spendzeroconfchange");
+	if (!settings.contains("fShowOrphans"))
+		settings.setValue("fShowOrphans", false);
+	fShowOrphans = settings.value("fShowOrphans", false).toBool();
 #endif
 
     // Network
@@ -209,6 +212,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("bSpendZeroConfChange");
         case ShowMasternodesTab:
             return settings.value("fShowMasternodesTab");
+		case fShowOrphans:
+			return settings.value(f"ShowOrphans");
 #endif
         case DisplayUnit:
             return nDisplayUnit;
@@ -298,6 +303,11 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
                 setRestartRequired(true);
             }
             break;
+		case fShowOrphans:
+			if (settings.value("fShowOrphans") != value) {
+				settings.setValue("fShowOrphans", value);
+				setRestartRequired(true);
+			}
         case ShowMasternodesTab:
             if (settings.value("fShowMasternodesTab") != value) {
                 settings.setValue("fShowMasternodesTab", value);
