@@ -105,6 +105,7 @@ BITCOIN_CORE_H = \
   db.h \
   eccryptoverify.h \
   ecwrapper.h \
+  fs.h \
   hash.h \
   init.h \
   kernel.h \
@@ -191,6 +192,7 @@ libbitcoin_server_a_SOURCES = \
   bloom.cpp \
   chain.cpp \
   checkpoints.cpp \
+  fs.cpp \
   init.cpp \
   leveldbwrapper.cpp \
   main.cpp \
