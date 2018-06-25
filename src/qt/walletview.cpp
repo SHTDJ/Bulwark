@@ -54,13 +54,6 @@ WalletView::WalletView(QWidget* parent) : QStackedWidget(parent),
     exportButton->setIcon(QIcon(":/icons/export"));
 #endif
     hbox_buttons->addStretch();
-
-
-	QCheckBox* filterOrphans = new QCheckBox();
-	filterOrphans->setObjectName("filterOrphans");
-	filterOrphans->setText(tr("Exclude conflicted transactions"));
-	hbox_buttons->addWidget(filterOrphans);
-
     // Sum of selected transactions
     QLabel* transactionSumLabel = new QLabel();                // Label
     transactionSumLabel->setObjectName("transactionSumLabel"); // Label ID as CSS-reference
