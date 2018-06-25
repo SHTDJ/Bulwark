@@ -13,6 +13,7 @@
 #include "net.h"
 
 #include "addrman.h"
+#include "addrdb.h"
 #include "chainparams.h"
 #include "clientversion.h"
 #include "miner.h"
