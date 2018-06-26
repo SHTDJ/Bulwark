@@ -638,7 +638,7 @@ public:
     static void Ban(const CSubNet& subNet, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
     static bool Unban(const CNetAddr& ip);
     static bool Unban(const CSubNet& subNet);
-    static void GetBanned(std::map<CSubNet, int64_t>& banMap);
+    static void GetBanned(banmap_t &banMap);
     void copyStats(CNodeStats& stats);
 
     static bool IsWhitelistedRange(const CNetAddr& ip);
