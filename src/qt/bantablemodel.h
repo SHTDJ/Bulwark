@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BANTABLEMODEL_H
 
 #include "net.h"
-#include "addrdb.h"
+
 
 #include <QAbstractTableModel>
 #include <QStringList>
