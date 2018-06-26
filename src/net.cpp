@@ -534,7 +534,6 @@ bool CNode::IsBanned(CSubNet subnet)
 void CNode::Ban(const CNetAddr& addr,int64_t bantimeoffset, bool sinceUnixEpoch) {
 	CSubNet subNet(addr);
 	Ban(subNet, bantimeoffset, sinceUnixEpoch);
-	DumpBanlist();
 }
 
 
@@ -565,7 +564,6 @@ bool CNode::Unban(const CSubNet& subNet)
 {
 	LOCK(cs_setBanned);
 	if (setBanned.erase(subNet)) {
-		DumpBanlist();
 		return true;
 }	
     return false;
