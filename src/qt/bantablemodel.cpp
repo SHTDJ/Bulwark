@@ -3,7 +3,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "bantablemodel.h"
-#include "addrdb.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
