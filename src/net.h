@@ -271,8 +271,9 @@ public:
 protected:
     // Denial-of-service detection/prevention
     // Key is IP address, value is banned-until-time
-	banmap_t setBanned;
+	static banmap_t setBanned;
     static CCriticalSection cs_setBanned;
+	static bool setBannedIsDirty;
 
     std::vector<std::string> vecRequestsFulfilled; //keep track of what client has asked for
 

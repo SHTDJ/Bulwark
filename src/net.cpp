@@ -488,6 +488,10 @@ void CNode::PushVersion()
         nLocalHostNonce, FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, std::vector<string>()), nBestHeight, true);
 }
 
+banmap_t CNode::setBanned;
+CCriticalSection CNode::cs_setBanned;
+bool CNode::setBannedIsDirty;
+
 void CNode::ClearBanned()
 {
     setBanned.clear();
