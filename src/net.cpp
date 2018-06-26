@@ -565,8 +565,8 @@ bool CNode::Unban(const CSubNet& subNet)
 {
 	LOCK(cs_setBanned);
 	if (setBanned.erase(subNet)) {
-	DumpBanlist()
-	return true;
+		DumpBanlist();
+		return true;
 }	
     return false;
 }
