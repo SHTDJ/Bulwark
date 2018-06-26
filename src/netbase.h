@@ -90,7 +90,7 @@ public:
     bool GetIn6Addr(struct in6_addr* pipv6Addr) const;
 
     friend bool operator==(const CNetAddr& a, const CNetAddr& b);
-    friend bool operator!=(const CNetAddr& a, const CNetAddr& b);
+    friend bool operator!=(const CNetAddr& a, const CNetAddr& b) { return !(a == b); }
     friend bool operator<(const CNetAddr& a, const CNetAddr& b);
 
     ADD_SERIALIZE_METHODS;
@@ -98,7 +98,7 @@ public:
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
-        READWRITE(FLATDATA(ip));
+        READWRITE(ip);
     }
 
     friend class CSubNet;
