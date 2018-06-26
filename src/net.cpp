@@ -13,7 +13,6 @@
 #include "net.h"
 
 #include "addrman.h"
-#include "addrdb.h"
 #include "chainparams.h"
 #include "clientversion.h"
 #include "miner.h"
@@ -490,7 +489,7 @@ void CNode::PushVersion()
 }
 
 
-std::map<CSubNet, int64_t> CNode::setBanned;
+banmap_t::setBanned;
 CCriticalSection CNode::cs_setBanned;
 
 void CNode::ClearBanned()
