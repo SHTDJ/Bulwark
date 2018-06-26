@@ -486,11 +486,11 @@ Value listbanned(const Array& params, bool fHelp)
     CNode::GetBanned(banMap);
 
     Array bannedAddresses;
-    for (std::map<CSubNet, int64_t>::iterator it = banMap.begin(); it != banMap.end(); it++)
+    for (banmap_t::iterator it = banMap.begin(); it != banMap.end(); it++)
     {
         Object rec;
         rec.push_back(Pair("address", (*it).first.ToString()));
-        rec.push_back(Pair("banned_untill", (*it).second));
+        rec.push_back(Pair("banned_untill", (*it).second.nBanUntil));
         bannedAddresses.push_back(rec);
     }
 
