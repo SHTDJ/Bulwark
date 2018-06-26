@@ -638,6 +638,7 @@ public:
     static bool IsBanned(CSubNet subNet);
     static void Ban(const CNetAddr& ip, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
     static void Ban(const CSubNet& subNet, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
+	static void DumpBanlist();
     static bool Unban(const CNetAddr& ip);
     static bool Unban(const CSubNet& subNet);
     static void GetBanned(banmap_t &banMap);

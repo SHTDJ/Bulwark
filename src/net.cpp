@@ -537,6 +537,7 @@ void CNode::Ban(const CNetAddr& addr,int64_t bantimeoffset, bool sinceUnixEpoch)
 	DumpBanlist();
 }
 
+
 void CNode::Ban(const CSubNet& subNet, int64_t bantimeoffset, bool sinceUnixEpoch) {
 	CBanEntry banEntry(GetTime());
 	if (bantimeoffset <= 0)
@@ -562,11 +563,11 @@ bool CNode::Unban(const CNetAddr& addr)
 
 bool CNode::Unban(const CSubNet& subNet)
 {
-    LOCK(cs_setBanned);
+	LOCK(cs_setBanned);
 	if (setBanned.erase(subNet)) {
-		DumpBanlist();
-		return true;
-	}
+	DumpBanlist()
+	return true;
+}	
     return false;
 }
 
@@ -1201,7 +1202,7 @@ void DumpAddresses()
         addrman.size(), GetTimeMillis() - nStart);
 }
 
-void DumpBanlist()
+void CNode::DumpBanlist()
 {
 	int64_t nStart = GetTimeMillis();
 
