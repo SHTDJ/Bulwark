@@ -117,6 +117,7 @@ protected:
 public:
     CSubNet();
     explicit CSubNet(const std::string& strSubnet, bool fAllowLookup = false);
+	explicit CSubNet(const CNetAddr &addr);
 
     bool Match(const CNetAddr& addr) const;
 
