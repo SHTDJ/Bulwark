@@ -1213,6 +1213,25 @@ void DumpBanlist()
 		banmap.size(), GetTimeMillis() - nStart);
 }
 
+void CNode::SweepBanned()
+{
+	int64_t now = GetTime();
+
+	LOCK(cs_setBanned);
+	banmap_t::iterator it = setBanned.begin();
+	while (it != setBanned.end())
+	{
+		CBanEntry banEntry = (*it).second;
+		if (now > banEntry.nBanUntil)
+		{
+			setBanned.erase(it++);
+			setBannedIsDirty = true;
+		}
+		else
+			++it;
+	}
+}
+
 void static ProcessOneShot()
 {
     string strDest;

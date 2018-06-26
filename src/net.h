@@ -642,6 +642,8 @@ public:
     static bool Unban(const CSubNet& subNet);
     static void GetBanned(banmap_t &banMap);
     void copyStats(CNodeStats& stats);
+	//!clean unused entries (if bantime has expired)
+	static void SweepBanned();
 
     static bool IsWhitelistedRange(const CNetAddr& ip);
     static void AddWhitelistedRange(const CSubNet& subnet);
