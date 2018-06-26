@@ -65,7 +65,7 @@ QString HtmlEscape(const std::string& str, bool fMultiLine = false);
      */
 void copyEntryData(QAbstractItemView* view, int column, int role = Qt::EditRole);
 
-QString getEntryData(QAbstractItemView *view, int column, int role)
+QString getEntryData(QAbstractItemView *view, int column, int role);
 
 void setClipboard(const QString& str);
 
