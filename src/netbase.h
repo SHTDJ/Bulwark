@@ -124,7 +124,7 @@ public:
     bool IsValid() const;
 
     friend bool operator==(const CSubNet& a, const CSubNet& b);
-    friend bool operator!=(const CSubNet& a, const CSubNet& b) { return !(a == b); }
+	friend bool operator!=(const CSubNet& a, const CSubNet& b);
     friend bool operator<(const CSubNet& a, const CSubNet& b);
 
 	ADD_SERIALIZE_METHODS;
