@@ -499,36 +499,37 @@ void CNode::ClearBanned()
 
 bool CNode::IsBanned(CNetAddr ip)
 {
-    bool fResult = false;
-    {
-        LOCK(cs_setBanned);
-        for (std::map<CSubNet, int64_t>::iterator it = setBanned.begin(); it != setBanned.end(); it++)
-        {
-            CSubNet subNet = (*it).first;
-            int64_t t = (*it).second;
+	bool fResult = false;
+	{
+		LOCK(cs_setBanned);
+		for (banmap_t::iterator it = setBanned.begin(); it != setBanned.end(); it++)
+		{
+			CSubNet subNet = (*it).first;
+			CBanEntry banEntry = (*it).second;
 
-            if (subNet.Match(ip) && GetTime() < t)
-                fResult = true;
-        }
-    }
-    return fResult;
+			if (subNet.Match(ip) && GetTime() < banEntry.nBanUntil)
+				fResult = true;
+		}
+	}
+	return fResult;
 }
 
-bool CNode::IsBanned(CSubNet subNet)
+bool CNode::IsBanned(CSubNet subnet)
 {
-    bool fResult = false;
-    {
-        LOCK(cs_setBanned);
-        std::map<CSubNet, int64_t>::iterator it = setBanned.find(subNet);
-        if (it != setBanned.end())
-        {
-            int64_t t = (*it).second;
-            if (GetTime() < t)
-                fResult = true;
-        }
-    }
-    return fResult;
+	bool fResult = false;
+	{
+		LOCK(cs_setBanned);
+		banmap_t::iterator i = setBanned.find(subnet);
+		if (i != setBanned.end())
+		{
+			CBanEntry banEntry = (*i).second;
+			if (GetTime() < banEntry.nBanUntil)
+				fResult = true;
+		}
+	}
+	return fResult;
 }
+
 
 void CNode::Ban(const CNetAddr& addr, int64_t bantimeoffset, bool sinceUnixEpoch)
 {
