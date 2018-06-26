@@ -386,8 +386,10 @@ void RPCConsole::setClientModel(ClientModel* model)
 		connect(signalMapper, SIGNAL(mapped(int)), this, SLOT(banSelectedNode(int)));
 
         // connect the peerWidget selection model to our peerSelected() handler
+		connect(ui->peerWidget, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showPeersTableContextMenu(const QPoint&)));
         connect(ui->peerWidget->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)),
             this, SLOT(peerSelected(const QItemSelection&, const QItemSelection&)));
+		connect(disconnectAction, SIGNAL(triggered()), this, SLOT(disconnectSelectedNode()));
         connect(model->getPeerTableModel(), SIGNAL(layoutChanged()), this, SLOT(peerLayoutChanged()));
 
 		// set up ban table
