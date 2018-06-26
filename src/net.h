@@ -271,7 +271,7 @@ public:
 protected:
     // Denial-of-service detection/prevention
     // Key is IP address, value is banned-until-time
-    static std::map<CSubNet, int64_t> setBanned;
+	banmap_t setBanned;
     static CCriticalSection cs_setBanned;
 
     std::vector<std::string> vecRequestsFulfilled; //keep track of what client has asked for
@@ -651,7 +651,7 @@ public:
 
     static uint64_t GetTotalBytesRecv();
     static uint64_t GetTotalBytesSent();
-	banmap_t setBanned;
+	
 };
 
 class CExplicitNetCleanup
