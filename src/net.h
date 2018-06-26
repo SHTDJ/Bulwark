@@ -650,6 +650,7 @@ public:
 
     static uint64_t GetTotalBytesRecv();
     static uint64_t GetTotalBytesSent();
+	banmap_t setBanned;
 };
 
 class CExplicitNetCleanup
