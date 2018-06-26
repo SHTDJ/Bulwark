@@ -564,7 +564,7 @@ bool CNode::Unban(const CSubNet& subNet)
     return false;
 }
 
-void CNode::GetBanned(std::map<CSubNet, CBanEntry>& banMap)
+void CNode::GetBanned(banmap_t &banMap)
 {
     LOCK(cs_setBanned);
     banMap = setBanned; // thread safe copy
