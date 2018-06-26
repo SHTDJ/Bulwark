@@ -757,7 +757,7 @@ void RPCConsole::peerSelected(const QItemSelection& selected, const QItemSelecti
 
 void RPCConsole::peerLayoutChanged()
 {
-    if (!clientModel !clientModel->getPeerTableModel())
+    if (!clientModel || !clientModel->getPeerTableModel())
         return;
 
     const CNodeCombinedStats* stats = NULL;

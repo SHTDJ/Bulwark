@@ -109,6 +109,11 @@ public slots:
 	/** clear the selected node */
 	void clearSelectedNode();
     /** Show folder with wallet backups in default browser */
+	void disconnectSelectedNode();
+	/** Ban a selected node on the Peers tab */
+	void banSelectedNode(int bantime);
+	/** Unban a selected node on the Bans tab */
+	void unbanSelectedNode();
     void showBackups();
 
 signals:
