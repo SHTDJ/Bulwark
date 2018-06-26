@@ -10,6 +10,7 @@
 #include "sync.h"
 #include "utiltime.h"
 
+#include <QDateTime>
 #include <QDebug>
 #include <QList>
 
