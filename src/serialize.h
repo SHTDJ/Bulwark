@@ -108,7 +108,7 @@ enum {
     void Unserialize(Stream& s, int nType, int nVersion)                              \
     {                                                                                 \
         SerializationOp(s, CSerActionUnserialize(), nType, nVersion);                 \
-    }																				  
+    }
 
 
 /*

@@ -353,15 +353,6 @@ CNode* FindNode(const CNetAddr& ip)
     return NULL;
 }
 
-CNode* FindNode(const CSubNet& subNet) 
-{
-    LOCK(cs_vNodes);
-    BOOST_FOREACH(CNode* pnode, vNodes)
-    if (subNet.Match((CNetAddr)pnode->addr))
-        return (pnode);
-    return NULL;
-}
-
 CNode* FindNode(const std::string& addrName)
 {
     LOCK(cs_vNodes);
@@ -488,9 +479,9 @@ void CNode::PushVersion()
         nLocalHostNonce, FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, std::vector<string>()), nBestHeight, true);
 }
 
-banmap_t CNode::setBanned;
+
+std::map<CNetAddr, int64_t> CNode::setBanned;
 CCriticalSection CNode::cs_setBanned;
-bool CNode::setBannedIsDirty;
 
 void CNode::ClearBanned()
 {
@@ -499,79 +490,30 @@ void CNode::ClearBanned()
 
 bool CNode::IsBanned(CNetAddr ip)
 {
-	bool fResult = false;
-	{
-		LOCK(cs_setBanned);
-		for (banmap_t::iterator it = setBanned.begin(); it != setBanned.end(); it++)
-		{
-			CSubNet subNet = (*it).first;
-			CBanEntry banEntry = (*it).second;
-
-			if (subNet.Match(ip) && GetTime() < banEntry.nBanUntil)
-				fResult = true;
-		}
-	}
-	return fResult;
+    bool fResult = false;
+    {
+        LOCK(cs_setBanned);
+        std::map<CNetAddr, int64_t>::iterator i = setBanned.find(ip);
+        if (i != setBanned.end()) {
+            int64_t t = (*i).second;
+            if (GetTime() < t)
+                fResult = true;
+        }
+    }
+    return fResult;
 }
 
-bool CNode::IsBanned(CSubNet subnet)
+bool CNode::Ban(const CNetAddr& addr)
 {
-	bool fResult = false;
-	{
-		LOCK(cs_setBanned);
-		banmap_t::iterator i = setBanned.find(subnet);
-		if (i != setBanned.end())
-		{
-			CBanEntry banEntry = (*i).second;
-			if (GetTime() < banEntry.nBanUntil)
-				fResult = true;
-		}
-	}
-	return fResult;
+    int64_t banTime = GetTime() + GetArg("-bantime", 60 * 60 * 24); // Default 24-hour ban
+    {
+        LOCK(cs_setBanned);
+        if (setBanned[addr] < banTime)
+            setBanned[addr] = banTime;
+    }
+    return true;
 }
 
-
-void CNode::Ban(const CNetAddr& addr,int64_t bantimeoffset, bool sinceUnixEpoch) {
-	CSubNet subNet(addr);
-	Ban(subNet, bantimeoffset, sinceUnixEpoch);
-}
-
-void CNode::Ban(const CSubNet& subNet, int64_t bantimeoffset, bool sinceUnixEpoch) {
-	CBanEntry banEntry(GetTime());
-	if (bantimeoffset <= 0)
-	{
-		bantimeoffset = GetArg("-bantime", 60 * 60 * 24); // Default 24-hour ban
-		sinceUnixEpoch = false;
-	}
-	banEntry.nBanUntil = (sinceUnixEpoch ? 0 : GetTime()) + bantimeoffset;
-
-
-	LOCK(cs_setBanned);
-	if (setBanned[subNet].nBanUntil < banEntry.nBanUntil)
-		setBanned[subNet] = banEntry;
-
-	setBannedIsDirty = true;
-}
-
-bool CNode::Unban(const CNetAddr& addr)
-{
-    CSubNet subNet(addr.ToString()+(addr.IsIPv4() ? "/32" : "/128"));
-    return Unban(subNet);
-}
-
-bool CNode::Unban(const CSubNet& subNet)
-{
-    LOCK(cs_setBanned);
-    if (setBanned.erase(subNet))
-        return true;
-    return false;
-}
-
-void CNode::GetBanned(banmap_t &banMap)
-{
-    LOCK(cs_setBanned);
-    banMap = setBanned; // thread safe copy
-}
 
 std::vector<CSubNet> CNode::vWhitelistedRange;
 CCriticalSection CNode::cs_vWhitelistedRange;
