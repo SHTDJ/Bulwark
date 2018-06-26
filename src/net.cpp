@@ -1206,7 +1206,7 @@ void CNode::DumpBanlist()
 {
 	int64_t nStart = GetTimeMillis();
 
-	CNode::SweepBanned(); //clean unused entries (if bantime has expired)
+	//CNode::SweepBanned(); clean unused entries (if bantime has expired)
 
 	CBanDB bandb;
 	banmap_t banmap;
