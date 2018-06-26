@@ -2,6 +2,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "addrdb.h"
 #include "bantablemodel.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
@@ -48,6 +49,8 @@ public:
 	void refreshBanlist()
 	{
 		banmap_t banMap;
+		CBanDB bandb;
+		bandb.Read(banMap);
 		CNode::GetBanned(banMap);
 
 		cachedBanlist.clear();
