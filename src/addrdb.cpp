@@ -16,6 +16,98 @@
 #include "util.h"
 
 
+namespace {
+
+	template <typename Stream, typename Data>
+	bool SerializeDB(Stream& stream, const Data& data)
+	{
+		// Write and commit header, data
+		try {
+			CHashWriter hasher(SER_DISK, CLIENT_VERSION);
+			stream << Params().MessageStart() << data;
+			hasher << Params().MessageStart() << data;
+			stream << hasher.GetHash();
+		}
+		catch (const std::exception& e) {
+			return error("%s: Serialize or I/O error - %s", __func__, e.what());
+		}
+
+		return true;
+	}
+
+	template <typename Data>
+	bool SerializeFileDB(const std::string& prefix, const fs::path& path, const Data& data)
+	{
+		// Generate random temporary filename
+		unsigned short randv = 0;
+		GetRandBytes((unsigned char*)&randv, sizeof(randv));
+		std::string tmpfn = strprintf("%s.%04x", prefix, randv);
+
+		// open temp output file, and associate with CAutoFile
+		fs::path pathTmp = GetDataDir() / tmpfn;
+		FILE *file = fsbridge::fopen(pathTmp, "wb");
+		CAutoFile fileout(file, SER_DISK, CLIENT_VERSION);
+		if (fileout.IsNull())
+			return error("%s: Failed to open file %s", __func__, pathTmp.string());
+
+		// Serialize
+		if (!SerializeDB(fileout, data)) return false;
+		if (!FileCommit(fileout.Get()))
+			return error("%s: Failed to flush file %s", __func__, pathTmp.string());
+		fileout.fclose();
+
+		// replace existing file, if any, with new file
+		if (!RenameOver(pathTmp, path))
+			return error("%s: Rename-into-place failed", __func__);
+
+		return true;
+	}
+
+	template <typename Stream, typename Data>
+	bool DeserializeDB(Stream& stream, Data& data, bool fCheckSum = true)
+	{
+		try {
+			CHashVerifier<Stream> verifier(&stream);
+			// de-serialize file header (network specific magic number) and ..
+			unsigned char pchMsgTmp[4];
+			verifier >> pchMsgTmp;
+			// ... verify the network matches ours
+			if (memcmp(pchMsgTmp, Params().MessageStart(), sizeof(pchMsgTmp)))
+				return error("%s: Invalid network magic number", __func__);
+
+			// de-serialize data
+			verifier >> data;
+
+			// verify checksum
+			if (fCheckSum) {
+				uint256 hashTmp;
+				stream >> hashTmp;
+				if (hashTmp != verifier.GetHash()) {
+					return error("%s: Checksum mismatch, data corrupted", __func__);
+				}
+			}
+		}
+		catch (const std::exception& e) {
+			return error("%s: Deserialize or I/O error - %s", __func__, e.what());
+		}
+
+		return true;
+	}
+
+	template <typename Data>
+	bool DeserializeFileDB(const fs::path& path, Data& data)
+	{
+		// open input file, and associate with CAutoFile
+		FILE *file = fsbridge::fopen(path, "rb");
+		CAutoFile filein(file, SER_DISK, CLIENT_VERSION);
+		if (filein.IsNull())
+			return error("%s: Failed to open file %s", __func__, path.string());
+
+		return DeserializeDB(filein, data);
+	}
+
+}
+
 CBanDB::CBanDB()
 {
 	pathBanlist = GetDataDir() / "banlist.dat";
@@ -23,92 +115,35 @@ CBanDB::CBanDB()
 
 bool CBanDB::Write(const banmap_t& banSet)
 {
-	// Generate random temporary filename
-	unsigned short randv = 0;
-	GetRandBytes((unsigned char*)&randv, sizeof(randv));
-	std::string tmpfn = strprintf("banlist.dat.%04x", randv);
-
-	// serialize banlist, checksum data up to that point, then append csum
-	CDataStream ssBanlist(SER_DISK, CLIENT_VERSION);
-	ssBanlist << FLATDATA(Params().MessageStart());
-	ssBanlist << banSet;
-	uint256 hash = Hash(ssBanlist.begin(), ssBanlist.end());
-	ssBanlist << hash;
-
-	// open temp output file, and associate with CAutoFile
-	fs::path pathTmp = GetDataDir() / tmpfn;
-	FILE *file = fsbridge::fopen(pathTmp, "wb");
-	CAutoFile fileout(file, SER_DISK, CLIENT_VERSION);
-	if (fileout.IsNull())
-		return error("%s: Failed to open file %s", __func__, pathTmp.string());
-
-	// Write and commit header, data
-	try {
-		fileout << ssBanlist;
-	}
-	catch (const std::exception& e) {
-		return error("%s: Serialize or I/O error - %s", __func__, e.what());
-	}
-	FileCommit(fileout.Get());
-	fileout.fclose();
-
-	// replace existing banlist.dat, if any, with new banlist.dat.XXXX
-	if (!RenameOver(pathTmp, pathBanlist))
-		return error("%s: Rename-into-place failed", __func__);
-
-	return true;
+	return SerializeFileDB("banlist", pathBanlist, banSet);
 }
 
 bool CBanDB::Read(banmap_t& banSet)
 {
-	// open input file, and associate with CAutoFile
-	FILE *file = fsbridge::fopen(pathBanlist, "rb");
-	CAutoFile filein(file, SER_DISK, CLIENT_VERSION);
-	if (filein.IsNull())
-		return error("%s: Failed to open file %s", __func__, pathBanlist.string());
+	return DeserializeFileDB(pathBanlist, banSet);
+}
 
-	// use file size to size memory buffer
-	uint64_t fileSize = fs::file_size(pathBanlist);
-	uint64_t dataSize = 0;
-	// Don't try to resize to a negative number if file is small
-	if (fileSize >= sizeof(uint256))
-		dataSize = fileSize - sizeof(uint256);
-	std::vector<unsigned char> vchData;
-	vchData.resize(dataSize);
-	uint256 hashIn;
+CAddrDB::CAddrDB()
+{
+	pathAddr = GetDataDir() / "peers.dat";
+}
 
-	// read data and checksum from file
-	try {
-		filein.read((char *)&vchData[0], dataSize);
-		filein >> hashIn;
+bool CAddrDB::Write(const CAddrMan& addr)
+{
+	return SerializeFileDB("peers", pathAddr, addr);
+}
+
+bool CAddrDB::Read(CAddrMan& addr)
+{
+	return DeserializeFileDB(pathAddr, addr);
+}
+
+bool CAddrDB::Read(CAddrMan& addr, CDataStream& ssPeers)
+{
+	bool ret = DeserializeDB(ssPeers, addr, false);
+	if (!ret) {
+		// Ensure addrman is left in a clean state
+		addr.Clear();
 	}
-	catch (const std::exception& e) {
-		return error("%s: Deserialize or I/O error - %s", __func__, e.what());
-	}
-	filein.fclose();
-
-	CDataStream ssBanlist(vchData, SER_DISK, CLIENT_VERSION);
-
-	// verify stored checksum matches input data
-	uint256 hashTmp = Hash(ssBanlist.begin(), ssBanlist.end());
-	if (hashIn != hashTmp)
-		return error("%s: Checksum mismatch, data corrupted", __func__);
-
-	unsigned char pchMsgTmp[4];
-	try {
-		// de-serialize file header (network specific magic number) and ..
-		ssBanlist >> FLATDATA(pchMsgTmp);
-
-		// ... verify the network matches ours
-		if (memcmp(pchMsgTmp, Params().MessageStart(), sizeof(pchMsgTmp)))
-			return error("%s: Invalid network magic number", __func__);
-
-		// de-serialize ban data
-		ssBanlist >> banSet;
-	}
-	catch (const std::exception& e) {
-		return error("%s: Deserialize or I/O error - %s", __func__, e.what());
-	}
-
-	return true;
+	return ret;
 }
