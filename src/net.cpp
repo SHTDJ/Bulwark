@@ -1198,6 +1198,21 @@ void DumpAddresses()
         addrman.size(), GetTimeMillis() - nStart);
 }
 
+void DumpBanlist()
+{
+	int64_t nStart = GetTimeMillis();
+
+	CNode::SweepBanned(); //clean unused entries (if bantime has expired)
+
+	CBanDB bandb;
+	banmap_t banmap;
+	CNode::GetBanned(banmap);
+	bandb.Write(banmap);
+
+	LogPrint("net", "Flushed %d banned node ips/subnets to banlist.dat  %dms\n",
+		banmap.size(), GetTimeMillis() - nStart);
+}
+
 void static ProcessOneShot()
 {
     string strDest;
