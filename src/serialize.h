@@ -108,7 +108,17 @@ enum {
     void Unserialize(Stream& s, int nType, int nVersion)                              \
     {                                                                                 \
         SerializationOp(s, CSerActionUnserialize(), nType, nVersion);                 \
-    }
+    }																				  \
+template<typename Stream>															  \
+void Serialize(Stream& s) const {													  \
+																					  \
+		NCONST_PTR(this)->SerializationOp(s, CSerActionSerialize());				  \
+}																					  \
+template<typename Stream>															  \
+void Unserialize(Stream& s) {														  \
+																					  \
+			SerializationOp(s, CSerActionUnserialize());							  \
+	}
 
 
 /*
