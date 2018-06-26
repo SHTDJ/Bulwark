@@ -7,6 +7,7 @@
 
 #include "rpcserver.h"
 
+#include "addrdb.h"
 #include "clientversion.h"
 #include "main.h"
 #include "net.h"
@@ -481,7 +482,7 @@ Value listbanned(const Array& params, bool fHelp)
                             + HelpExampleRpc("listbanned", "")
                             );
 
-    std::map<CSubNet, int64_t> banMap;
+    banmap_t banMap;
     CNode::GetBanned(banMap);
 
     Array bannedAddresses;
