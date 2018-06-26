@@ -51,7 +51,6 @@ public:
 		banmap_t banMap;
 		CBanDB bandb;
 		bandb.Read(banMap);
-		CNode::GetBanned(banMap);
 
 		cachedBanlist.clear();
 #if QT_VERSION >= 0x040700
