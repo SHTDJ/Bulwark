@@ -632,14 +632,14 @@ public:
     // dangerous, because it can cause a network split
     // between nodes running old code and nodes running
     // new code.
-    static void ClearBanned(); // needed for unit testing
-    static bool IsBanned(CNetAddr ip);
-    static bool IsBanned(CSubNet subNet);
-    static void Ban(const CNetAddr& ip, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
-    static void Ban(const CSubNet& subNet, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
-    static bool Unban(const CNetAddr& ip);
-    static bool Unban(const CSubNet& subNet);
-    static void GetBanned(banmap_t &banMap);
+    void ClearBanned(); // needed for unit testing
+    bool IsBanned(CNetAddr ip);
+    bool IsBanned(CSubNet subNet);
+    void Ban(const CNetAddr& ip, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
+    void Ban(const CSubNet& subNet, int64_t bantimeoffset = 0, bool sinceUnixEpoch = false);
+    bool Unban(const CNetAddr& ip);
+    bool Unban(const CSubNet& subNet);
+    void GetBanned(banmap_t &banMap);
     void copyStats(CNodeStats& stats);
 
     static bool IsWhitelistedRange(const CNetAddr& ip);
